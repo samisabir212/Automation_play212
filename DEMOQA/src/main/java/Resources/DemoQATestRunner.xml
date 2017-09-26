@@ -16,11 +16,12 @@
 
 
 
-    <test name = "Launch Td APP Page">
+    <test name = "DemoQA Registration Page">
         <classes>
-            <class name="TestCases.LaunchTdApp"/>
+           <class name="Registration.RegistrationPage"/>
 
         </classes>
     </test>
 
 </suite>
+

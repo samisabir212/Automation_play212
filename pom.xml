@@ -13,6 +13,7 @@
         <module>Base</module>
         <module>TdAmeritrade</module>
         <module>Amazon</module>
+        <module>DEMOQA</module>
     </modules>
 
 

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Amazon/Amazon.iml" filepath="$PROJECT_DIR$/Amazon/Amazon.iml" />
       <module fileurl="file://$PROJECT_DIR$/Base/Base.iml" filepath="$PROJECT_DIR$/Base/Base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DEMOQA/DEMOQA_BOOTCAMP.iml" filepath="$PROJECT_DIR$/DEMOQA/DEMOQA_BOOTCAMP.iml" />
       <module fileurl="file://$PROJECT_DIR$/SeleniumBootCamp.iml" filepath="$PROJECT_DIR$/SeleniumBootCamp.iml" />
       <module fileurl="file://$PROJECT_DIR$/TdAmeritrade/TdAmeritrade.iml" filepath="$PROJECT_DIR$/TdAmeritrade/TdAmeritrade.iml" />
     </modules>

@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -40,7 +41,7 @@ public class BaseAPIs {
     public FileInputStream fis;
 
     public static ExcelReader excel = new ExcelReader(
-            System.getProperty("user.dir") + "");
+            System.getProperty("user.dir") + "/src/main/TestData/SeleniumBootCampData.xlsx");
 
 
 
@@ -62,19 +63,20 @@ public class BaseAPIs {
         } else if (useGrid == true) {
 
             //run grid
+            objectRepositoryStreamSetup();
             getGridDriver(platform, browserName, browserVersion, url);
 
         } else {
 
             //run local
-            //configStreamSetup();
+            objectRepositoryStreamSetup();
             getLocalDriver(os, browserName);
 
         }
 
 
 
-        // driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get(url);
 
@@ -198,27 +200,14 @@ public class BaseAPIs {
     }
 
 
-    public void configStreamSetup() {
+    public void objectRepositoryStreamSetup() {
 
 
         /*
-        * used for retrieving object data from config or OR properties file
+        * used for retrieving object data from Object Repository properties file
         * */
         try {
-            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/properties/Config.properties");
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            Config.load(fis);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        try {
-            fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/properties/OR.properties");
+            fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/ObjectRepository/OR.properties");
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -234,6 +223,7 @@ public class BaseAPIs {
     }
 
 
+
     /*******************************ACTION METHODS****************************************/
 
 
@@ -243,6 +233,7 @@ public class BaseAPIs {
         Select select = new Select(object);
         select.selectByVisibleText(value);
     }
+
 
     public void clickById(String locator) {
         driver.findElement(By.id(locator)).click();
@@ -399,6 +390,24 @@ public class BaseAPIs {
         }
     }
 
+    public void verifyURL(String ExpectedURL) {
+
+        String url = driver.getCurrentUrl();
+
+        Assert.assertEquals(url,ExpectedURL);
+
+
+    }
+
+    public String getCurrentPageUrl() {
+
+        String url = driver.getCurrentUrl();
+
+        System.out.println(url.toString());
+
+        return url;
+    }
+
 
 
 
@@ -431,6 +440,8 @@ public class BaseAPIs {
         }
         return options;
     }
+
+
 
 
 
@@ -483,13 +494,7 @@ public class BaseAPIs {
 
 
 
-    public String getCurrentPageUrl() {
-        String url = driver.getCurrentUrl();
 
-        System.out.println(url.toString());
-
-        return url;
-    }
 
 
     //used to capture screen shot create file name

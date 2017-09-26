@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="TestSuite" parallel="tests">
+    <test name="FireFox Test">
+
+            <parameter name="os" value="Linux" />
+            <parameter name="browserName" value="Chrome" />
+            <parameter name="browserVersion" value="59.0" />
+            <parameter name="url" value="www.expedia.com" />
+
+
+        <classes>
+            <class
+
+                    name="SeleniumGrid.launchGrid1">
+
+            </class>
+        </classes>
+
+
+    </test>
+
+
+    <test name="Chrome Test">
+
+
+
+<!--
+        UPDATE VERSION
+        IF CANT CONFIGURE WITH LINUX THEN USE WINDOWS.
+-->
+            <parameter name="os" value="Linux" />
+            <parameter name="browserName" value="firefox" />
+            <parameter name="browserVersion" value="54.0" />
+            <parameter name="url" value="http://www.expedia.com" />
+
+
+        <classes>
+
+            <class
+                    name="SeleniumGrid.launchGrid1">
+
+            </class>
+
+        </classes>
+    </test>
+</suite>
+
+
+
+
+
+
