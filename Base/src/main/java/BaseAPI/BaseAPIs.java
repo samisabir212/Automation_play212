@@ -1,5 +1,6 @@
 package BaseAPI;
 
+import Utilities.ExcelReader;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -30,11 +31,18 @@ public class BaseAPIs {
 
 
     //initialize webdriver to nill
-    WebDriver driver = null;
+    public WebDriver driver = null;
+    public JavascriptExecutor js;
+
 
     public Properties OR = new Properties();
     public Properties Config = new Properties();
     public FileInputStream fis;
+
+    public static ExcelReader excel = new ExcelReader(
+            System.getProperty("user.dir") + "");
+
+
 
 
 
