@@ -23,7 +23,6 @@
 
             <class name="Registration.DBDDL"/>
 
-
         </classes>
     </test>
 

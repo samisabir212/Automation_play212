@@ -7,6 +7,5 @@ public class DataProvidors {
 
 
 
-    public static
 
 }

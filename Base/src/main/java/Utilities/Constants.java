@@ -7,18 +7,23 @@ public class Constants {
 
 
 
-    public static String RUNMODE_COLOUMN = "Runmode";
+    public static String RUNMODE_COLOUMN = "RunMode";
+
     public static String TEST_DATA_SHEET = "TestData";
-    public static String SUITE_SHEET_NAME = "Suite";
+
+    public static String SUITE_SHEET = "Suite";
     public static String SUITENAME_COLOUMN ="SuiteName";
+
     public static String TESTCASE_SHEET_NAME = "TestCases";
     public static String TESTCASE_COLOUMN = "TestCases";
-    public static String RUNMODE_AS_YES = "Y";
-    public static String RUNMODE_AS_NO = "N";
 
-    public static String SELNIUMBOOTCAMP_EXCEL_PATH = System.getProperty("user.dir") + "/src/test/resources/testdata/Suite.xlsx";
-    public static String DEMOQA_EXCEL_PATH =System.getProperty("user.dir") + "/src/test/resources/testdata/BankManagerSuite.xlsx";
-    public static String SUITE2_XL_PATH=System.getProperty("user.dir") + "/src/test/resources/testdata/CustomerSuite.xlsx";
+    public static String RUNMODE_YES = "Y";
+    public static String RUNMODE_NO = "N";
+
+
+    public static String DEMOQA_EXCEL_PATH = System.getProperty("user.dir") + "/src/TestData/DemoQA_Excel.xlsx";
+
+    public static String SUITE_XL_PATH = System.getProperty("user.dir") + "/src/TestData/Suite.xlsx";
 
 
 }

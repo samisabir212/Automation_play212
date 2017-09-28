@@ -19,9 +19,10 @@
     <test name = "DemoQA Registration Page">
         <classes>
            <class name="Registration.RegistrationPage"/>
-
+            <class name="Registration.ExcelData_Registration"/>
         </classes>
     </test>
+
 
 </suite>
 
