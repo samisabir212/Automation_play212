@@ -8,7 +8,7 @@ public class Constants {
 
 
     public static String RUNMODE_COLOUMN = "Runmode";
-    public static String DATA_SHEET_NAME = "TestData";
+    public static String TEST_DATA_SHEET = "TestData";
     public static String SUITE_SHEET_NAME = "Suite";
     public static String SUITENAME_COLOUMN ="SuiteName";
     public static String TESTCASE_SHEET_NAME = "TestCases";

@@ -40,8 +40,6 @@ public class BaseAPIs {
     public Properties Config = new Properties();
     public FileInputStream fis;
 
-    public static ExcelReader excel = new ExcelReader(
-            System.getProperty("user.dir") + "/src/TestData/SeleniumBootCampData.xlsx");
 
 
 

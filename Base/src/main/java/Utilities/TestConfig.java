@@ -2,7 +2,7 @@ package Utilities;
 public class TestConfig{
 
 
-	
+	//emailing reports constants
 	public static String server="smtp.gmail.com";
 	public static String from = "samisabir22@gmail.com";
 	public static String password = "Reflectlikeme2";
@@ -27,6 +27,12 @@ public class TestConfig{
 	public static String mysqluserName = "root";
 	public static String mysqlpassword = "selenium";
 	public static String mysqlurl = "jdbc:mysql://localhost:3306/acs";
+
+
+	//postgresql database
+
+
+	//sqlitedatabase
 	
 	
 	
