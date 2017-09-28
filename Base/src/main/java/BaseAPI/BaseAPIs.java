@@ -41,9 +41,7 @@ public class BaseAPIs {
     public FileInputStream fis;
 
     public static ExcelReader excel = new ExcelReader(
-            System.getProperty("user.dir") + "/src/main/TestData/SeleniumBootCampData.xlsx");
-
-
+            System.getProperty("user.dir") + "/src/TestData/SeleniumBootCampData.xlsx");
 
 
 
@@ -69,7 +67,7 @@ public class BaseAPIs {
         } else {
 
             //run local
-            objectRepositoryStreamSetup();
+//            objectRepositoryStreamSetup();
             getLocalDriver(os, browserName);
 
         }

@@ -14,8 +14,6 @@ public class DBDDL extends BaseAPIs {
 
 
 
-
-
     @Test
     public void TestDropDownListDB() throws InterruptedException, SQLException {
 
@@ -39,13 +37,10 @@ public class DBDDL extends BaseAPIs {
         datasource.printDBcountryList("select country from demoqa;");
 
 
-
         //check if webapp DDL matches DB list data
 
 
-
         sleepFor(5);
-
 
 
         datasource.close();

@@ -13,7 +13,7 @@ public class Datasource extends BaseAPIs {
 
 
     public static final String DB_NAME = "demoqa.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/sami/git-home-repos/WebAppsFramework/DEMOQA/src/data/" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/sami/Desktop/SeleniumBootCamp/DEMOQA/src/data/" + DB_NAME;
 
 
     Connection conn = null;
