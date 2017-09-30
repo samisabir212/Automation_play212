@@ -21,10 +21,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class RegistrationPage extends BaseAPIs {
 
 
-
-
-
-    @Test
+    @Test(enabled = false)
     public void TestRegistrationPage() throws InterruptedException, AWTException {
 
         js = (JavascriptExecutor) driver;
@@ -61,7 +58,7 @@ public class RegistrationPage extends BaseAPIs {
         //select year DOB
 
         //enter phone number
-        typeByCss("input[id='phone_9']","123456789");
+        typeByCss("input[id='phone_9']", "123456789");
 
         sleepFor(4);
 
@@ -71,7 +68,6 @@ public class RegistrationPage extends BaseAPIs {
         //enter username
 
         //enter email
-
 
 
         //upload profile picture [USE ROBOT FOR MAC}
@@ -90,7 +86,6 @@ public class RegistrationPage extends BaseAPIs {
         assertEquals(strengthLevelBox, "Weak");
 
         sleepFor(3);
-
 
 
     }

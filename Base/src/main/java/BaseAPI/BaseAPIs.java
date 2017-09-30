@@ -639,22 +639,6 @@ public class BaseAPIs {
 
     }
 
-   /* public void explicitWait(Long waitTime, String locator) {
-
-        WebDriverWait wait = new WebDriverWait(driver,waitTime);
-
-        WebElement element = null;
-
-        if (locator.endsWith("_CSS")) {
-            element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.)));
-        } else if (locator.endsWith("_XPATH")) {
-            element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.)));
-        } else if (locator.endsWith("_ID")) {
-            element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.)));
-        }
-
-    }*/
-
 
 
 

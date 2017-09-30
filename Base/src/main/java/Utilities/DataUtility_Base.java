@@ -11,60 +11,8 @@ import java.util.Hashtable;
  *
  * DATA UTILITY WITH DATA PROVIDOR FOR GETTING DATA FROM THE SHEET FROM EXCEL
  */
-public class DataUtility {
+public class DataUtility_Base {
 
-
-
-
-    public static boolean isSuiteRunnable(String suiteName) {
-
-        ExcelReader excel = new ExcelReader(Constants.SUITE_XL_PATH);
-        int rows = excel.getRowCount(Constants.SUITE_SHEET);
-
-        for (int rowNum = 2; rowNum <= rows; rowNum++) {
-
-            String data = excel.getCellData(Constants.SUITE_SHEET, Constants.SUITENAME_COLOUMN, rowNum);
-
-            if (data.equals(suiteName)) {
-
-                String runmode = excel.getCellData(Constants.SUITE_SHEET, Constants.RUNMODE_COLOUMN, rowNum);
-                if (runmode.equals(Constants.RUNMODE_YES))
-                    return true;
-                else
-                    return false;
-
-            }
-
-        }
-
-        return false;
-
-    }
-
-
-    public static boolean isTestRunnable(String testCaseName, ExcelReader excel) {
-
-        int rows = excel.getRowCount(Constants.TESTCASE_SHEET_NAME);
-
-        for (int rowNum = 2; rowNum <= rows; rowNum++) {
-
-            String data = excel.getCellData(Constants.TESTCASE_SHEET_NAME, Constants.TESTCASE_COLOUMN, rowNum);
-
-            if (data.equals(testCaseName)) {
-
-                String runmode = excel.getCellData(Constants.TESTCASE_SHEET_NAME, Constants.RUNMODE_COLOUMN, rowNum);
-                if (runmode.equals(Constants.RUNMODE_YES))
-                    return true;
-                else
-                    return false;
-
-            }
-
-        }
-
-        return false;
-
-    }
 
 
 
@@ -98,13 +46,59 @@ public class DataUtility {
 
 
 
+    public static boolean isSuiteRunnable(String suiteName) {
 
 
 
+        ExcelReader excel = new ExcelReader(Constants.DEMOQA_EXCEL_PATH);
+
+        int rows = excel.getRowCount(Constants.SUITE_SHEET);
+
+        for (int rowNum = 2; rowNum <= rows; rowNum++) {
+
+            String data = excel.getCellData(Constants.SUITE_SHEET, Constants.SUITENAME_COLOUMN, rowNum);
+
+            if (data.equals(suiteName)) {
+
+                String runmode = excel.getCellData(Constants.SUITE_SHEET, Constants.RUNMODE_COLOUMN, rowNum);
+                if (runmode.equals(Constants.RUNMODE_YES))
+                    return true;
+                else
+                    return false;
+
+            }
+
+        }
+
+        return false;
+
+    }
 
 
 
+    public static boolean isTestRunnable(String testCaseName, ExcelReader excel) {
 
+        int rows = excel.getRowCount(Constants.TESTCASE_SHEET_NAME);
+
+        for (int rowNum = 2; rowNum <= rows; rowNum++) {
+
+            String data = excel.getCellData(Constants.TESTCASE_SHEET_NAME, Constants.TESTCASE_COLOUMN, rowNum);
+
+            if (data.equals(testCaseName)) {
+
+                String runmode = excel.getCellData(Constants.TESTCASE_SHEET_NAME, Constants.RUNMODE_COLOUMN, rowNum);
+                if (runmode.equals(Constants.RUNMODE_YES))
+                    return true;
+                else
+                    return false;
+
+            }
+
+        }
+
+        return false;
+
+    }
 
 
 
@@ -120,7 +114,6 @@ public class DataUtility {
 
 
         // pass the testCase parameter and name it testName
-        //TESTCASE ROW!!
 
         String testName = testCase;
 
@@ -128,7 +121,7 @@ public class DataUtility {
         int testCaseRowNumber = 1;
 
         //find out where the test case will start by using the test name
-        //create a loop where the test ase will start by counting and reading the testcase name
+        //create a loop where the test case will start by counting and reading the testcase name
 
         //incrementing the testcaserownumber until we find where want to start the test.
         for (testCaseRowNumber =1; testCaseRowNumber<=rows; testCaseRowNumber++) {
@@ -220,6 +213,8 @@ public class DataUtility {
         *
         * */
 
+        //starting the testdatarows where the loop caught where to start the data
+        //and column will be at the second row after testcase row
         Object[][] data = new Object[testDataRows][1];
 
         int i = 0;
@@ -241,7 +236,11 @@ public class DataUtility {
 
             }
 
+            //for every row of test data we want to create a table to read from
+
+            //test data row will start at i and column will start at 0
             data[i][0] = table;
+            i++;
 
         }
 

@@ -21,9 +21,14 @@ public class Constants {
     public static String RUNMODE_NO = "N";
 
 
-    public static String DEMOQA_EXCEL_PATH = System.getProperty("user.dir") + "/src/TestData/DemoQA_Excel.xlsx";
+    public static String DEMOQA_EXCEL_PATH = System.getProperty("user.dir") + "/src/main/resources/Suites_ALL/DemoQASuites.xlsx";
 
-    public static String SUITE_XL_PATH = System.getProperty("user.dir") + "/src/TestData/Suite.xlsx";
+
+    public static String DEMOQA_SUITE_PATH = System.getProperty("user.dir") + "/src/main/java/Suites_ALL/DemoQASuites.xlsx";
+
+
+
+
 
 
 }

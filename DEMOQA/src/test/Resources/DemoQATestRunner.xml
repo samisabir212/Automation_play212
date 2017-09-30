@@ -18,8 +18,8 @@
 
     <test name = "DemoQA Registration Page">
         <classes>
-           <class name="Registration.RegistrationPage"/>
-            <class name="Registration.ExcelData_Registration"/>
+           <!--<class name="Registration.RegistrationPage"/>-->
+            <class name="com.DemoQA.Suite.Registration.testcaes.Registration001"/>
         </classes>
     </test>
 
