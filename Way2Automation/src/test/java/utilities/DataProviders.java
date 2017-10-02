@@ -13,7 +13,7 @@ public class DataProviders {
 	this is where we are getting our data.
 	must look at DataUtil to see how data is being read and implemented into the test
 	*/
-	@DataProvider(name="bankManagerDP",parallel=true)
+	@DataProvider(name="bankManagerDP",parallel=false)
 	public static Object[][] getDataSuite1(Method m) {
 
 		System.out.println(m.getName());

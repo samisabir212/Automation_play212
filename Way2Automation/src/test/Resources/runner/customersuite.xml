@@ -12,19 +12,15 @@
     <parameter name="os" value="Mac"/>
     <parameter name="browserName" value="firefox"/>
     <parameter name="browserVersion" value="54.0"/>
-    <parameter name="url" value="www.demoqa.com/"/>
+    <parameter name="url" value="http://way2automation.com/angularjs-protractor/banking/#/login.com/"/>
+
+
 
   <test name="AddCustomerTest">
     <classes>
         <class name="suite.bankmanager.testcases.AddCustomerTest"/>
     </classes>
-  </test> <!-- Test -->
+  </test>
   
-  <test name="OpenAccountTest">
-    <classes>
-       <class name="suite.bankmanager.testcases.OpenAccountTest"/>
 
-     </classes>
-  </test> <!-- Test -->
-
-</suite> <!-- BankManagerSuite -->
+</suite>

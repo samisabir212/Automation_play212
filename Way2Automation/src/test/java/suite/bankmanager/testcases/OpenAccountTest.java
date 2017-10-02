@@ -16,12 +16,10 @@ import static javafx.beans.binding.Bindings.select;
 
 
 public class OpenAccountTest extends BaseAPIs {
-	
-	
-	
-	@Test(dataProviderClass= DataProviders.class,dataProvider="bankManagerDP")
-	public void openAccountTest(Hashtable<String,String> data) throws MalformedURLException {
 
+
+	@Test(dataProviderClass = DataProviders.class, dataProvider = "bankManagerDP", enabled = false)
+	public void openAccountTest(Hashtable<String, String> data) throws MalformedURLException {
 
 
 	}

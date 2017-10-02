@@ -46,7 +46,8 @@ public class BaseAPIs {
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloud, @Optional("sami212") String cloudUserName,
                       @Optional("####") String cloudAccessKey, @Optional("false") boolean useGrid, @Optional("Mac") String platform, @Optional("Windows 10") String os,
-                      @Optional("chrome") String browserName, @Optional("58") String browserVersion, String url) throws MalformedURLException {
+                      @Optional("firefox") String browserName, @Optional("58") String browserVersion,
+                      @Optional("www.demoqa.com") String url) throws MalformedURLException {
 
 
 
@@ -58,20 +59,18 @@ public class BaseAPIs {
         } else if (useGrid == true) {
 
             //run grid
-            objectRepositoryStreamSetup();
+           // objectRepositoryStreamSetup();
             getGridDriver(platform, browserName, browserVersion, url);
 
         } else {
 
-            //run local
-//            objectRepositoryStreamSetup();
             getLocalDriver(os, browserName);
 
         }
 
 
 
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get(url);
 
@@ -89,13 +88,13 @@ public class BaseAPIs {
         if (browserName.equalsIgnoreCase("chrome")) {
 
             if (os.equalsIgnoreCase("Mac")) {
-                System.setProperty("webdriver.chrome.driver", "../Base/src/main/java/Drivers/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/chromedriver");
 
             } else if (os.equalsIgnoreCase("Win10")) {
                 System.setProperty("webdriver.chrome.driver", "Windows path for chrome driver here.");
 
             } else if (os.equalsIgnoreCase("Linux")) {
-                System.setProperty("webdriver.chrome.driver", "..Base/src/main/java/Drivers/chromedriverLinux");
+                System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/chromedriverLinux");
             }
             driver = new ChromeDriver();
 
@@ -103,13 +102,13 @@ public class BaseAPIs {
 
 
             if (os.equalsIgnoreCase("Mac")) {
-                System.setProperty("webdriver.gecko.driver", "../Base/src/main/java/Drivers/chromedriver");
+                System.setProperty("webdriver.gecko.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/geckodriverMAC");
 
             } else if (os.equalsIgnoreCase("Win10")) {
                 System.setProperty("webdriver.gecko.driver", "Windows path for chrome driver here.");
 
             } else if (os.equalsIgnoreCase("Linux")) {
-                System.setProperty("webdriver.gecko.driver", "../Base/src/main/java/Drivers/geckodriverLinux");
+                System.setProperty("webdriver.gecko.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/geckodriverLinux");
 
             }
 
@@ -253,17 +252,20 @@ public class BaseAPIs {
 
     //typeing by id locator
     public void typeByID(String locator, String value) {
+
         driver.findElement(By.id(locator)).sendKeys(value);
     }
 
     //type by id and enter key
     public void typeByIdEnter(String locator, String value) {
+
         driver.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
     }
 
 
     //type by xpath and ENTER key
     public void typeByXpathEnter(String locator, String value) {
+
         driver.findElement(By.xpath(locator)).sendKeys(value, Keys.ENTER);
     }
 
@@ -283,7 +285,7 @@ public class BaseAPIs {
     }
 
 
-    public void clearInputField(String locator) {
+    public void clearInputFieldByCSS(String locator) {
 
         driver.findElement(By.cssSelector(locator)).clear();
     }
@@ -651,7 +653,7 @@ public class BaseAPIs {
     }
 
     //Explicit wait for an element to be present and then utilize it
-    public WebElement waitForElement(By locator, int timeout) {
+    public WebElement waitForElement(int timeout, By locator) {
 
         WebElement element = null;
 
