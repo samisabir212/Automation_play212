@@ -1,7 +1,7 @@
-package suite.bankmanager.testcases;
+package Registration;
 
 
-import utilities.DataUtil;
+import Utilities_Base.DataUtil;
 
 /**
  * Created by sami on 9/29/17.
@@ -11,7 +11,7 @@ public class checkExcution {
 
     public static void main(String[] args) {
 
-        boolean suiteRunmode = DataUtil.isSuiteRunnable("BankManagerSuite");
+        boolean suiteRunmode = DataUtil.isSuiteRunnable("Registration001");
 
 
         System.out.println(suiteRunmode);

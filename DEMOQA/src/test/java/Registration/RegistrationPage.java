@@ -12,7 +12,6 @@ import java.awt.event.KeyEvent;
 import java.util.Iterator;
 import java.util.List;
 
-import static Utilities.TestConfig.driver;
 import static org.testng.AssertJUnit.assertEquals;
 
 /**
@@ -21,7 +20,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class RegistrationPage extends BaseAPIs {
 
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TestRegistrationPage() throws InterruptedException, AWTException {
 
         js = (JavascriptExecutor) driver;

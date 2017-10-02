@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BankManagerSuite" parallel="tests">
 
-
-<suite name="Demo QA" parallel="tests">
 
     <parameter name="useCloud" value="false"/>
     <parameter name="cloudUserName" value="rahmanww"/>
@@ -13,15 +12,17 @@
     <parameter name="browserVersion" value="54.0"/>
     <parameter name="url" value="www.demoqa.com/"/>
 
+  
+  <test name="AddCustomerTest">
+    <classes>
+        <class name="suite."/>
+    </classes>
+  </test>
 
-
-
-    <test name = "DemoQA Registration Page">
-        <classes>
-           <class name="Registration.RegistrationPage"/>
-        </classes>
-    </test>
-
+    <test name="OpenAccountTest">
+    <classes>
+        <class name="com.w2a.suite.bankmanager.testcases.OpenAccountTest"/>
+    </classes>
+  </test>
 
 </suite>
-

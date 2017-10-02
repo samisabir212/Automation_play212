@@ -1,4 +1,4 @@
-package utilities;
+package Utilities_Base;
 
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -38,7 +38,7 @@ public class DataUtil {
 
 
 
-		ExcelReader excel = new ExcelReader(Constants.SUITE_XL_PATH);
+		ExcelReader excel = new ExcelReader(Constants.Test_suite_xl_path);
 
 		int rows = excel.getRowCount(Constants.SUITE_SHEET);
 

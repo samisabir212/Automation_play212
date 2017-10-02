@@ -1,4 +1,4 @@
-package utilities;
+package Utilities_Base;
 
 public class Constants {
 	
@@ -18,8 +18,13 @@ public class Constants {
 	public static String RUNMODE_YES = "Y";
 	public static String RUNMODE_NO = "N";
 
+
+
+
 	public static String SUITE_XL_PATH = "/Users/sami/Desktop/SeleniumBootCamp/Way2Automation/src/test/java/testdata/Suite.xlsx";
 	public static String BankManagerSuite_XLPATH =System.getProperty("user.dir") + "/src/test/java/testdata/BankManagerSuite.xlsx";
 	public static String SUITE2_XL_PATH=System.getProperty("user.dir") + "/src/test/java/testdata/CustomerSuite.xlsx";
+	public static String Test_suite_xl_path = "/Users/sami/Desktop/SeleniumBootCamp/DEMOQA/src/test/Resources/TestData_RegistraionForm/DemoQA_RegistrationSuite.xlsx";
+
 
 }
