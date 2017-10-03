@@ -44,11 +44,11 @@ public class AddCustomerTest extends BaseAPIs {
 
 		//click add button
 		waitForElement(10, By.xpath(".//button[@type='submit']"));
-		sleepFor(5);
+		//sleepFor(5);
 
 		clickByXpath(".//button[@type='submit']");
-		alertAccept();
-
+		sleepFor(3);
+		okAlert();
 
 	}
 

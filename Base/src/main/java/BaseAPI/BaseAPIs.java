@@ -1,5 +1,6 @@
 package BaseAPI;
 
+import org.apache.log4j.spi.LoggerFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,6 +16,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+
+
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -189,6 +192,8 @@ public class BaseAPIs {
 
     @AfterMethod
     public void tearDown() {
+
+       // driver.quit();
         driver.close();
 
     }
@@ -763,6 +768,23 @@ public class BaseAPIs {
 
 */
 
+    }
+
+
+    public static void moveToNewWindows(WebDriver driver, String windowTitle) {
+        boolean windowExists = false;
+        Set<String> windows = driver.getWindowHandles();
+        for (String window : windows) {
+            driver.switchTo().window(window);
+            if (driver.getTitle().contains(windowTitle)) {
+                windowExists = true;
+
+                break;
+            }
+        }
+        if (!windowExists) {
+            Assert.fail(windowTitle + " Title window not exists");
+        }
     }
 
 
