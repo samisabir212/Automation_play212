@@ -19,7 +19,7 @@ public class AddCustomerTest extends BaseAPIs {
 	
 	
 	@Test(dataProviderClass= DataProviders.class,dataProvider="bankManagerDP")
-	public void addCustomerTest(Hashtable<String,String> data) throws MalformedURLException{
+	public void addCustomerTest(Hashtable<String,String> data) throws MalformedURLException, InterruptedException {
 
 
 		ExcelReader excel = new ExcelReader(Constants.BankManagerSuite_XLPATH);
@@ -34,6 +34,20 @@ public class AddCustomerTest extends BaseAPIs {
 
 		waitForElement(10, By.xpath(".//input[@ng-model='fName']"));
 		typeByXpath(".//input[@ng-model='fName']", data.get("firstname"));
+
+		//type last name
+		typeByXpath(".//input[@ng-model='lName']", data.get("lastname"));
+
+
+		//enter postcode
+		typeByXpath(".//input[@ng-model='postCd']", data.get("postcode"));
+
+		//click add button
+		waitForElement(10, By.xpath(".//button[@type='submit']"));
+		sleepFor(5);
+
+		clickByXpath(".//button[@type='submit']");
+		alertAccept();
 
 
 	}
