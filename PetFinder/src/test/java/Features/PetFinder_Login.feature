@@ -7,7 +7,7 @@ Feature: this feature is for making sure a user can login with a valid username 
     And I enter the the following data for logging in
       | username               | password  |
       | samisabir212@gmail.com | Apples212 |
-    And I click Login buttonpo
+    And I click Login button
     Then I can click the 'My pet Finder button'
     And I should be Redirected to the Profile page
 

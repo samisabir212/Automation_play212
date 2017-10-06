@@ -2,40 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <parent>
         <artifactId>SeleniumBootCamp</artifactId>
         <groupId>com.PNT.Bootcamp</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>PetFinder</artifactId>
 
+
+
 <dependencies>
 
-    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-picocontainer -->
     <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-picocontainer</artifactId>
+        <groupId>com.PNT.Bootcamp</groupId>
+        <artifactId>Base</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
-    <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-junit</artifactId>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
-    <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-java</artifactId>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-core -->
-    <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-core</artifactId>
-    </dependency>
 
     <dependency>
         <groupId>org.uncommons</groupId>
@@ -116,41 +104,44 @@
     </dependency>
 
 
+    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
+    <dependency>
+        <groupId>info.cukes</groupId>
+        <artifactId>cucumber-junit</artifactId>
+
+
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+    <dependency>
+        <groupId>info.cukes</groupId>
+        <artifactId>cucumber-java</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-core -->
+    <dependency>
+        <groupId>info.cukes</groupId>
+        <artifactId>cucumber-core</artifactId>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-picocontainer -->
+    <dependency>
+        <groupId>info.cukes</groupId>
+        <artifactId>cucumber-picocontainer</artifactId>
+
+    </dependency>
+
+
+
 
 </dependencies>
 
-
-
-    <build>
-        <plugins>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
-                <configuration>
-                    <testFailureIgnore> false </testFailureIgnore>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/runner/testng.xml</suiteXmlFile>
-
-                    </suiteXmlFiles>
-                </configuration>
-            </plugin>
-
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-            </plugin>
-
-
-
-
-        </plugins>
-
-
-    </build>
 
 
 </project>

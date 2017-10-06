@@ -13,6 +13,7 @@
 
     <artifactId>Base</artifactId>
 
+
     <dependencies>
 
         <dependency>
@@ -113,6 +114,13 @@
             <artifactId>cucumber-core</artifactId>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-picocontainer -->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+
+        </dependency>
 
 
 
