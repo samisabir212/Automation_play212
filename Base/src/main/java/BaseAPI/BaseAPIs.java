@@ -1,6 +1,5 @@
 package BaseAPI;
 
-import org.apache.log4j.spi.LoggerFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -190,11 +189,15 @@ public class BaseAPIs {
 
     }
 
+
+
+
     @AfterMethod
     public void tearDown() {
 
-       // driver.quit();
         driver.close();
+
+        driver.quit();
 
     }
 

@@ -7,12 +7,19 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/Resources" type="java-test-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/../COMDEMOQABOOTCAMP/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-picocontainer:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-jvm-deps:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:gherkin:2.12.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.picocontainer:picocontainer:2.15" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-junit:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:4.11" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-java:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-core:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-html:0.2.3" level="project" />
     <orderEntry type="library" name="Maven: org.uncommons:reportng:1.1.4" level="project" />
     <orderEntry type="library" name="Maven: velocity:velocity:1.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: velocity:velocity-dep:1.4" level="project" />
@@ -50,7 +57,6 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.4.1.v20170120" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna-platform:4.1.0" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: com.codeborne:phantomjsdriver:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:htmlunit-driver:2.26" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
@@ -88,12 +94,5 @@
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
-    <orderEntry type="module" module-name="Base" />
-    <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-junit:1.2.2" level="project" />
-    <orderEntry type="library" name="Maven: info.cukes:cucumber-java:1.2.2" level="project" />
-    <orderEntry type="library" name="Maven: info.cukes:cucumber-core:1.2.2" level="project" />
-    <orderEntry type="library" name="Maven: info.cukes:cucumber-html:0.2.3" level="project" />
-    <orderEntry type="library" name="Maven: info.cukes:cucumber-jvm-deps:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: info.cukes:gherkin:2.12.2" level="project" />
   </component>
 </module>

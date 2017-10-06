@@ -26,12 +26,14 @@ public class AddCustomerTest extends BaseAPIs {
 
 		DataUtil.checkExecution("BankManagerSuite", "AddCustomerTest", data.get("Runmode"), excel);
 
-
+		//click bank manager button
 		waitForElement(10, By.xpath(".//button[@ng-click='manager()']"));
 		clickByXpath(".//button[@ng-click='manager()']");
 
+		//click add customer button
 		clickByXpath(".//button[@ng-click='addCust()']");
 
+		//enter firstname
 		waitForElement(10, By.xpath(".//input[@ng-model='fName']"));
 		typeByXpath(".//input[@ng-model='fName']", data.get("firstname"));
 
@@ -46,8 +48,10 @@ public class AddCustomerTest extends BaseAPIs {
 		waitForElement(10, By.xpath(".//button[@type='submit']"));
 		//sleepFor(5);
 
+		//click the submit button
 		clickByXpath(".//button[@type='submit']");
 		sleepFor(3);
+		//click the okay alert
 		okAlert();
 
 	}
