@@ -25,7 +25,7 @@ public class DataProviders {
 		ExcelReader excel = new ExcelReader(Constants.BankManagerSuite_XLPATH);
 		String testcase = m.getName();
 		return DataUtil.getData(testcase, excel);
-	
+
 	}
 
 

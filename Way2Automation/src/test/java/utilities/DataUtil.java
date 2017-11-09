@@ -42,6 +42,7 @@ public class DataUtil {
 
 		int rows = excel.getRowCount(Constants.SUITE_SHEET);
 
+		//row number starts at 2.. rows gets the count of the rowcount of suite_sheet
 		for (int rowNum = 2; rowNum <= rows; rowNum++) {
 
 			String data = excel.getCellData(Constants.SUITE_SHEET, Constants.SUITENAME_COL, rowNum);
@@ -49,6 +50,7 @@ public class DataUtil {
 			if (data.equals(suiteName)) {
 
 				String runmode = excel.getCellData(Constants.SUITE_SHEET, Constants.RUNMODE_COL, rowNum);
+
 				if (runmode.equals(Constants.RUNMODE_YES))
 					return true;
 				else
@@ -62,6 +64,7 @@ public class DataUtil {
 
 	}
 
+	//is the testcase runnable?? we check by the case name using excel reader
 	public static boolean isTestRunnable(String testCaseName, ExcelReader excel) {
 
 		int rows = excel.getRowCount(Constants.TESTCASE_SHEET);
@@ -86,9 +89,14 @@ public class DataUtil {
 
 	}
 
+
+
+
+
+	//just our data providor method below.
+
 	@DataProvider
 	public static Object[][] getData(String testCase, ExcelReader excel) {
-
 
 
 		int rows = excel.getRowCount(Constants.DATA_SHEET);

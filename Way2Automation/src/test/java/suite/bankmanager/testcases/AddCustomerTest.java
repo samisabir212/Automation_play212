@@ -4,9 +4,7 @@ import java.net.MalformedURLException;
 import java.util.Hashtable;
 
 import BaseAPI.BaseAPIs;
-import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import utilities.Constants;
 import utilities.DataProviders;
@@ -15,10 +13,10 @@ import utilities.ExcelReader;
 
 
 public class AddCustomerTest extends BaseAPIs {
-	
-	
-	
-	@Test(dataProviderClass= DataProviders.class,dataProvider="bankManagerDP")
+
+
+
+	@Test(dataProviderClass= DataProviders.class,dataProvider="bankManagerDP",enabled = false)
 	public void addCustomerTest(Hashtable<String,String> data) throws MalformedURLException, InterruptedException {
 
 

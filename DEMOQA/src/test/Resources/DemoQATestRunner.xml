@@ -9,9 +9,17 @@
     <parameter name="cloudAccessKey" value="6f132866-de72-43fd-b49a-e6f81d26bfe3"/>
     <parameter name="useGrid" value="false"/>
     <parameter name="os" value="Mac"/>
-    <parameter name="browserName" value="firefox"/>
+    <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="54.0"/>
-    <parameter name="url" value="http://demoqa.com/"/>
+    <parameter name="url" value="http://demoqa.com"/>
+    <parameter name="url_Services" value="http://demoqa.com/services/"/>
+
+
+    <!--now you can create multiple target urls within each unit test by just adding TestNG url parameter and
+    String url parameter to the classes test methods (Many multiple unit tests for each scenario)
+    you dont have to create multiple runner.xml files for each different pages.
+    now you can add the page object model to the new Base-->
+
 
 
 
@@ -19,6 +27,7 @@
     <test name = "DemoQA Registration Page">
         <classes>
            <class name="Registration.RegistrationPage"/>
+            <class name="TestingNewBase.TestNewBase"/>
         </classes>
     </test>
 

@@ -10,7 +10,10 @@
         <module name="Base" />
         <module name="COMDEMOQABOOTCAMP" />
         <module name="DEMOQA_BOOTCAMP" />
+        <module name="jqueryUI" />
         <module name="PetFinder" />
+        <module name="POM_FrameWork_Raman" />
+        <module name="ReallyMello" />
         <module name="TdAmeritrade" />
         <module name="Way2Automation" />
       </profile>
@@ -20,7 +23,10 @@
       <module name="Base" target="1.5" />
       <module name="COMDEMOQABOOTCAMP" target="1.5" />
       <module name="DEMOQA_BOOTCAMP" target="1.5" />
+      <module name="jqueryUI" target="1.5" />
       <module name="PetFinder" target="1.5" />
+      <module name="POM_FrameWork_Raman" target="1.5" />
+      <module name="ReallyMello" target="1.5" />
       <module name="SeleniumBootCamp" target="1.5" />
       <module name="TdAmeritrade" target="1.5" />
       <module name="test" target="1.5" />

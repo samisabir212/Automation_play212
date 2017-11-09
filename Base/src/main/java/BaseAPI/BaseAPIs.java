@@ -49,7 +49,7 @@ public class BaseAPIs {
     public void setUp(@Optional("false") boolean useCloud, @Optional("sami212") String cloudUserName,
                       @Optional("####") String cloudAccessKey, @Optional("false") boolean useGrid, @Optional("Mac") String platform, @Optional("Windows 10") String os,
                       @Optional("firefox") String browserName, @Optional("58") String browserVersion,
-                      @Optional("www.demoqa.com") String url) throws MalformedURLException {
+                      @Optional("http://demoqa.com/") String url) throws MalformedURLException {
 
 
 
@@ -251,6 +251,13 @@ public class BaseAPIs {
         driver.findElement(By.cssSelector(locator)).click();
     }
 
+    //click by locator
+    public void click(By locator) {
+
+        driver.findElement(locator).click();
+
+    }
+
     /**********TYPE SEND KEYS*********/
 
 
@@ -400,6 +407,7 @@ public class BaseAPIs {
         String url = driver.getCurrentUrl();
 
         Assert.assertEquals(url,ExpectedURL);
+
 
 
     }

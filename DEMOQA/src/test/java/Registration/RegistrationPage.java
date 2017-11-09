@@ -20,7 +20,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class RegistrationPage extends BaseAPIs {
 
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TestRegistrationPage() throws InterruptedException, AWTException {
 
         js = (JavascriptExecutor) driver;

@@ -24,11 +24,6 @@ public class Datasource extends BaseAPIs {
 
 
 
-
-
-
-
-
     /*
     method to open DB connection
         using connection_string
