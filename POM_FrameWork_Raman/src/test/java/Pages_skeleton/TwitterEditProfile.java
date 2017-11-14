@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class TwitterEditProfile extends TwitterMyProfile {
 
 
-    @FindBy
+    @FindBy(how = by.xpath, )
     WebElement addProfilePhotoButton;
 
     @FindBy

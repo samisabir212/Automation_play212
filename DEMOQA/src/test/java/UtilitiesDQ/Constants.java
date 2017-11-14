@@ -22,8 +22,8 @@ public class Constants {
     public static String TESTCASE_SHEET = "TestCases";
 
 
-    public static String SUITE_EXCEL_PATH = System.getProperty("user.dir")+ "/src/test/Resources/TestData_RegistraionForm/DemoQA_RegistrationSuite.xlsx";
-    public static String RegistrationFormTests = System.getProperty("user.dir")+ "/src/test/Resources/TestData_RegistraionForm/DemoQA_RegistrationPage.xlsx";
+    public static String SUITE_EXCEL_PATH = "/Users/sami/IdeaProjects/SeleniumBootCamp/DEMOQA/src/test/Resources/TestData_RegistraionForm/DemoQA_RegistrationSuite.xlsx";
+    public static String RegistrationFormTests = "/Users/sami/IdeaProjects/SeleniumBootCamp/DEMOQA/src/test/Resources/TestData_RegistraionForm/DemoQA_RegistrationPage.xlsx";
 
 
 }

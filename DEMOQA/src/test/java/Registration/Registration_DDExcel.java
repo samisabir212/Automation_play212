@@ -33,7 +33,7 @@ public class Registration_DDExcel extends BaseAPI_URL_BY_TEST {
 
         ExcelReader excel = new ExcelReader(Constants.RegistrationFormTests);
 
-        DataUtil.checkExecution("RegistrationSuite", "AddCustomerTest", data.get("Runmode"), excel);
+        DataUtil.checkExecution("RegistrationSuite", "RegistrationDemoExcel", data.get("Runmode"), excel);
 
 
         driver.get(url_Registration);
