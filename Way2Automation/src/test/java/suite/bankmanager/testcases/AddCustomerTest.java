@@ -16,13 +16,13 @@ public class AddCustomerTest extends BaseAPIs {
 
 
 
-	@Test(dataProviderClass= DataProviders.class,dataProvider="bankManagerDP",enabled = false)
+	@Test(dataProviderClass= DataProviders.class,dataProvider="bankManagerDP",enabled = true)
 	public void addCustomerTest(Hashtable<String,String> data) throws MalformedURLException, InterruptedException {
 
 
 		ExcelReader excel = new ExcelReader(Constants.BankManagerSuite_XLPATH);
 
-		DataUtil.checkExecution("BankManagerSuite", "RegistrationDemoExcel", data.get("Runmode"), excel);
+		DataUtil.checkExecution("BankManagerSuite", "AddCustomerTest", data.get("Runmode"), excel);
 
 		//click bank manager button
 		waitForElement(10, By.xpath(".//button[@ng-click='manager()']"));

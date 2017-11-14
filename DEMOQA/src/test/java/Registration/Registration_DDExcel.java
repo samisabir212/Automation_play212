@@ -28,12 +28,12 @@ public class Registration_DDExcel extends BaseAPI_URL_BY_TEST {
 
     @Parameters("url_Registration")
     @Test(enabled = true, dataProviderClass = DataProvidors_RegistrationDQ.class,dataProvider = "RegistrationExcelDP")
-    public void RegistrationDemoExcel(Hashtable<String, String> data, String url_Registration) throws AWTException, InterruptedException {
+    public void registrationDemoExcel(Hashtable<String, String> data, String url_Registration) throws AWTException, InterruptedException {
 
 
         ExcelReader excel = new ExcelReader(Constants.RegistrationFormTests);
 
-        DataUtil.checkExecution("RegistrationSuite", "RegistrationDemoExcel", data.get("Runmode"), excel);
+        DataUtil.checkExecution("RegistrationSuite", "registrationDemoExcel", data.get("Runmode"), excel);
 
 
         driver.get(url_Registration);
@@ -74,7 +74,7 @@ public class Registration_DDExcel extends BaseAPI_URL_BY_TEST {
 
 
         //enter phone number
-        typeByCss("input[id='phone_9']", data.get("phone_number"));
+        typeByCss("input[id='phone_9']", data.get("phoneNumber"));
 
         sleepFor(4);
 
@@ -98,7 +98,7 @@ public class Registration_DDExcel extends BaseAPI_URL_BY_TEST {
         typeByID("password_2", data.get("password"));
 
         //enter confirmed password (make them not match)
-        typeByID("confirm_password_password_2", data.get("confirm_password"));
+        typeByID("confirm_password_password_2", data.get("confirmPassword"));
 
 
         //assert if password notification field level is present as "weak"
