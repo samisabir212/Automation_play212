@@ -120,6 +120,11 @@
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.PNT.Bootcamp</groupId>
+            <artifactId>Way2Automation</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
 
     </dependencies>

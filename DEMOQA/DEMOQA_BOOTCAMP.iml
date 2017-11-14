@@ -95,5 +95,6 @@
     <orderEntry type="library" name="Maven: info.cukes:cucumber-html:0.2.3" level="project" />
     <orderEntry type="library" name="Maven: info.cukes:cucumber-jvm-deps:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: info.cukes:gherkin:2.12.2" level="project" />
+    <orderEntry type="module" module-name="Way2Automation" />
   </component>
 </module>

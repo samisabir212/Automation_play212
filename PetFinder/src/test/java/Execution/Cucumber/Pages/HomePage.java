@@ -22,6 +22,19 @@ public class HomePage {
     public WebElement petFinderButton;
 
 
+    @FindBy(how = How.XPATH, using = ".//div[@class='siteFooter-main-logo']")
+    public WebElement footerMainLogoBottomLeftOnHomePage;
+
+
+    public void verifyFooterBottomLeftOfPage() {
+
+        if (footerMainLogoBottomLeftOnHomePage.isDisplayed()) {
+            System.out.println("bottom footer is displayed");
+        }
+
+
+    }
+
 
 
 

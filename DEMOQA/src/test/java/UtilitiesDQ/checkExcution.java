@@ -1,24 +1,18 @@
-/*
-package Registration;
+package UtilitiesDQ;
 
 
-import Utilities_Base.DataUtil;
-
-*/
 /**
  * Created by sami on 9/29/17.
- *//*
-
+ */
 public class checkExcution {
 
 
     public static void main(String[] args) {
 
-        boolean suiteRunmode = DataUtil.isSuiteRunnable("Registration001");
+        boolean suiteRunmode = DataUtil.isSuiteRunnable("BankManagerSuite");
 
 
         System.out.println(suiteRunmode);
 
     }
 }
-*/

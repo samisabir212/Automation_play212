@@ -50,6 +50,7 @@ public class LoginWindow{
 
     public void clickSignIn() {
 
+
         signInClick.click();
 
     }

@@ -22,7 +22,7 @@ public class AddCustomerTest extends BaseAPIs {
 
 		ExcelReader excel = new ExcelReader(Constants.BankManagerSuite_XLPATH);
 
-		DataUtil.checkExecution("BankManagerSuite", "AddCustomerTest", data.get("Runmode"), excel);
+		DataUtil.checkExecution("BankManagerSuite", "RegistrationDemoExcel", data.get("Runmode"), excel);
 
 		//click bank manager button
 		waitForElement(10, By.xpath(".//button[@ng-click='manager()']"));

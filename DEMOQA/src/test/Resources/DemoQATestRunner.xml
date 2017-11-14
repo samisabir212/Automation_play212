@@ -12,7 +12,8 @@
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="54.0"/>
     <parameter name="url" value="http://demoqa.com"/>
-    <parameter name="url_Services" value="http://demoqa.com/services/"/>
+    <parameter name="url_Registration" value="http://demoqa.com/registration/"/>
+
 
 
     <!--now you can create multiple target urls within each unit test by just adding TestNG url parameter and
@@ -30,6 +31,19 @@
             <class name="TestingNewBase.TestNewBase"/>
         </classes>
     </test>
+
+
+
+    <test name = "RegistrationDemoExcel">
+        <classes>
+            <class name="Registration.Registration_DDExcel"/>
+
+        </classes>
+    </test>
+
+
+
+
 
 
 </suite>

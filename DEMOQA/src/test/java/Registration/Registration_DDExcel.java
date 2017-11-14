@@ -1,6 +1,10 @@
-package TestingNewBase;
+package Registration;
 
 import BaseAPI.BaseAPI_URL_BY_TEST;
+import UtilitiesDQ.Constants;
+import UtilitiesDQ.DataProvidors_RegistrationDQ;
+import UtilitiesDQ.DataUtil;
+import UtilitiesDQ.ExcelReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -10,31 +14,38 @@ import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
 /**
- * Created by sami on 10/16/17.
+ * Created by sami on 11/12/17.
  */
-public class TestNewBase extends BaseAPI_URL_BY_TEST {
+public class Registration_DDExcel extends BaseAPI_URL_BY_TEST {
 
-    @Parameters("url")
-    @Test(enabled = false)
-    public void TestRegistrationPage(String url) throws InterruptedException, AWTException {
 
-        driver.get(url);
+    @Parameters("url_Registration")
+    @Test(enabled = true, dataProviderClass = DataProvidors_RegistrationDQ.class,dataProvider = "RegistrationExcelDP")
+    public void RegistrationDemoExcel(Hashtable<String, String> data, String url_Registration) throws AWTException, InterruptedException {
+
+
+        ExcelReader excel = new ExcelReader(Constants.RegistrationFormTests);
+
+        DataUtil.checkExecution("RegistrationSuite", "AddCustomerTest", data.get("Runmode"), excel);
+
+
+        driver.get(url_Registration);
 
         js = (JavascriptExecutor) driver;
 
 
-        //click Registration page link
-        clickById("menu-item-374");
-        //enter First Name
-        typeByID("name_3_firstname", "Sami");
+        typeByID("name_3_firstname",data.get("firstname"));
+
+
         //enter last name
-        typeByID("name_3_lastname", "Sabir");
+        typeByID("name_3_lastname", data.get("lastname"));
 
 
         //click married radio button
@@ -55,32 +66,39 @@ public class TestNewBase extends BaseAPI_URL_BY_TEST {
 
         //select month DOB
         clickByXpath(".//select[@id='mm_date_8']//option[@value=10]");
+
         //select day DOB
 
         //select year DOB
 
+
+
         //enter phone number
-        typeByCss("input[id='phone_9']", "123456789");
+        typeByCss("input[id='phone_9']", data.get("phone_number"));
 
         sleepFor(4);
 
         js.executeScript("window.scrollBy(0,1900)");
         sleepFor(2);
 
+
         //enter username
+        typeByID("username", data.get("username"));
 
 
         //enter email
+        typeByID("email_1", data.get("email"));
 
 
         //upload profile picture [USE ROBOT FOR MAC}
         uploadFile("profile_pic_10", "/Users/sami/VS2.jpg");
 
+
         //enter password
-        typeByID("password_2", "AppleSeed2");
+        typeByID("password_2", data.get("password"));
 
         //enter confirmed password (make them not match)
-        typeByID("confirm_password_password_2", "AppleSeed2");
+        typeByID("confirm_password_password_2", data.get("confirm_password"));
 
 
         //assert if password notification field level is present as "weak"
@@ -93,14 +111,6 @@ public class TestNewBase extends BaseAPI_URL_BY_TEST {
 
     }
 
-    @Parameters("url_Services")
-    @Test(enabled = false)
-    public void TestServicesPage(String url_Services) throws InterruptedException {
-
-        driver.get(url_Services);
-        sleepFor(4);
-
-    }
 
 
 
@@ -163,4 +173,9 @@ public class TestNewBase extends BaseAPI_URL_BY_TEST {
 
 
 
+
+
 }
+
+
+
