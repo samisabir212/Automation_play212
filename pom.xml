@@ -12,14 +12,13 @@
 
     <modules>
         <module>Base</module>
-        <module>TdAmeritrade</module>
         <module>Amazon</module>
         <module>DEMOQA</module>
         <module>Way2Automation</module>
         <module>PetFinder</module>
         <module>jqueryUI</module>
         <module>ReallyMello</module>
-
+        <module>EDMUNDS</module>
     </modules>
 
 

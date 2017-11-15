@@ -14,7 +14,13 @@
         <option value="$PROJECT_DIR$/POM_FrameWork_Raman/pom.xml" />
         <option value="$PROJECT_DIR$/jqueryUI/pom.xml" />
         <option value="$PROJECT_DIR$/ReallyMello/pom.xml" />
+        <option value="$PROJECT_DIR$/EDMUNDS/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/PIIT_FORUM/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
