@@ -1,8 +1,8 @@
 package BaseAPI;
 
-import cucumber.api.java.en_old.Ac;
-import cucumber.api.java.gl.E;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -18,12 +18,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -41,6 +43,10 @@ public class BaseAPI_URL_BY_TEST {
     public Properties OR = new Properties();
     public Properties Config = new Properties();
     public FileInputStream fis;
+    public static Logger log = Logger.getLogger(BaseAPI_URL_BY_TEST.class);
+
+
+
 
 
 
@@ -58,19 +64,21 @@ public class BaseAPI_URL_BY_TEST {
         if (useCloud == true) {
             //run in cloud
             getCloudDriver(cloudUserName, cloudAccessKey, os, browserName, browserVersion);
+            log.debug("useCloud driver launched");
 
         } else if (useGrid == true) {
 
             //run grid
             // objectRepositoryStreamSetup();
             getGridDriver(platform, browserName, browserVersion);
+            log.debug("useGrid driver launched");
 
         } else {
 
             getLocalDriver(os, browserName);
+            log.debug("Local driver Launched");
 
         }
-
 
 
         //driver.manage().window().maximize();
@@ -231,13 +239,31 @@ public class BaseAPI_URL_BY_TEST {
     /*******************************ACTION METHODS****************************************/
 
 
+    /*******************************MAXIMIZE WINDOWS FOR DIFFERENT BROWSERS****************************************/
 
-    public void selectOptionByVisibleText(String locator, String value) {
-        WebElement object = driver.findElement(By.id(locator));
-        Select select = new Select(object);
-        select.selectByVisibleText(value);
+    public void maximize_IEandFirefox_Browsers() {
+
+        driver.manage().window().maximize();
+
+
     }
 
+    public void maximize_ToolKit() {
+
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenResolution = new Dimension((int)
+                toolkit.getScreenSize().getWidth(), (int)
+                toolkit.getScreenSize().getHeight());
+
+        driver.manage().window().setSize(screenResolution);
+
+    }
+
+    /***********************************************************************/
+
+
+
+    /*******************************CLICKING ACTIONS****************************************/
 
     public void clickById(String locator) {
         driver.findElement(By.id(locator)).click();
@@ -260,10 +286,38 @@ public class BaseAPI_URL_BY_TEST {
 
     }
 
+    /*******************************JAVA SCRIPT ACTIONS CLASS CLICKING****************************************/
+
+    public void clickJavaScriptActionsClick(By locator) {
+
+        WebElement element = driver.findElement(locator);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().perform();
+
+        /*
+        * 1. The element is not visible to click.
+        * 2. The page is getting refreshed before it is clicking the element.
+        * 3. The element is clickable but there is a spinner/overlay on top of it
+
+            in some cases this will happen and we have to us the Javascript Actions class
+        * */
+    }
+
+    /***********************************************************************/
+
     /**********TYPE SEND KEYS*********/
+
+    public void typeBy(By locator, String value) {
+
+        driver.findElement(locator).sendKeys(value);
+
+
+
+    }
 
 
     public void typeByCss(String locator, String value) {
+
         driver.findElement(By.cssSelector(locator)).sendKeys(value);
     }
 
@@ -300,6 +354,27 @@ public class BaseAPI_URL_BY_TEST {
     public void takeEnterKeys(String locator) {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
+
+
+    /***************************Select from dropdown list***************************************/
+
+
+    public void selectFromDropDownList(By locator, String text, int index) {
+
+        Select DropDownList = new Select(driver.findElement(locator));
+        DropDownList.selectByVisibleText(text);
+        DropDownList.selectByIndex(index);
+
+    }
+
+    public void selectOptionByVisibleText(By locator, String value) {
+        WebElement object = driver.findElement(locator);
+        Select select = new Select(object);
+        select.selectByVisibleText(value);
+    }
+
+
+    /******************************************************************/
 
 
     public void clearInputFieldByCSS(String locator) {
@@ -410,8 +485,6 @@ public class BaseAPI_URL_BY_TEST {
 
         Assert.assertEquals(url,ExpectedURL);
 
-
-
     }
 
     public String getCurrentPageUrl() {
@@ -498,7 +571,6 @@ public class BaseAPI_URL_BY_TEST {
     }
 
 
-
     public List<String> getListOfString(List<WebElement> list) {
         List<String> items = new ArrayList<String>();
         for (WebElement element : list) {
@@ -506,10 +578,6 @@ public class BaseAPI_URL_BY_TEST {
         }
         return items;
     }
-
-
-
-
 
 
     //used to capture screen shot create file name
@@ -542,12 +610,11 @@ public class BaseAPI_URL_BY_TEST {
 
         WebDriver driver = null;
         Alert alert = driver.switchTo().alert();
-        Thread.sleep(5000);
 
         alert.accept();
-
-        Thread.sleep(5000);
     }
+
+
     //same as alertAccept method
     public void okAlert(){
         Alert alert = driver.switchTo().alert();
@@ -652,10 +719,10 @@ public class BaseAPI_URL_BY_TEST {
     }
 
     //wait for element to be clickable by xpath
-    public void waitUntilClickAble(String locator){
+    public void waitUntilClickAble(By locator){
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
 
     }
 

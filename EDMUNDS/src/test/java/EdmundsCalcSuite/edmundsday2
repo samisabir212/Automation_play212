@@ -1,0 +1,26 @@
+Browser("Edmunds.com").Page("InPrivate").Sync
+Browser("Edmunds.com").Navigate "http://www.edmunds.com/calculators"
+
+'checkpoint-- verify that 'auto calculators' text is present on the page
+'Browser("Edmunds.com").Page("Page1").Check CheckPoint("Auto Calculators")
+
+
+Browser("Edmunds.com").Page("Page1").WebEdit("CalcDefaultValue").Set "444"
+Browser("Edmunds.com").Page("Page1").WebButton("GoButton").Click
+
+'text checkpoint
+
+Browser("Edmunds.com").Page("Page2").WebEdit("zipcode").Set "22042"
+Browser("Edmunds.com").Page("Page2").WebButton("Update Zip Code").Click
+Browser("Edmunds.com").Page("Page2").WebList("loanterm").Select "72 months"
+Browser("Edmunds.com").Page("Page2").WebEdit("financeRate").Set "1.99"
+Browser("Edmunds.com").Page("Page2").WebEdit("vehcile2price").Set "15000"
+Browser("Edmunds.com").Page("Page2").WebEdit("valueOwed").Set "2000"
+Browser("Edmunds.com").Page("Page2").WebEdit("Cashdownpayment").Set "5000"
+Browser("Edmunds.com").Page("Page2").WebButton("Calculate").Click
+
+Browser("Edmunds.com").Page("Page2").Check CheckPoint("Calculator: How Much Car Can I Afford? - Edmunds.com")
+
+Browser("Edmunds.com").Page("Page2").Sync
+'Browser("Edmunds.com").CloseAllTabs
+Systemutil.CloseProcessByName "iexplore.exe"

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Demo QA" parallel="tests">
+<suite name="Edmunds" parallel="tests">
 
     <parameter name="useCloud" value="false"/>
     <parameter name="cloudUserName" value="rahmanww"/>
@@ -10,29 +10,19 @@
     <parameter name="useGrid" value="false"/>
     <parameter name="os" value="Mac"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="browserVersion" value="54.0"/>
-    <parameter name="url" value="http://demoqa.com"/>
-    <parameter name="url_Registration" value="http://demoqa.com/registration/"/>
-
-
+    <parameter name="browserVersion" value="55.0"/>
+    <parameter name="url" value="http://edmunds.com/calculators"/>
 
     <!--now you can create multiple target urls within each unit test by just adding TestNG url parameter and
     String url parameter to the classes test methods (Many multiple unit tests for each scenario)
     you dont have to create multiple runner.xml files for each different pages.
     now you can add the page object model to the new Base-->
 
-
-
-
-
-    <test name = "DemoQA Registration Page">
+    <test name = "Edmunds Calculator">
         <classes>
-            
+            <class name="EdmundsCalcSuite.EdmundsCalc"/>
         </classes>
     </test>
-
-
-
 
 </suite>
 
