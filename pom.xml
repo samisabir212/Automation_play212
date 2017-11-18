@@ -223,6 +223,21 @@
                 <scope>test</scope>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.github.detro.ghostdriver/phantomjsdriver
+            https://github.com/detro/ghostdriver
+            -->
+            <dependency>
+                <groupId>com.github.detro.ghostdriver</groupId>
+                <artifactId>phantomjsdriver</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-remote-driver</artifactId>
+                <version>2.44.0</version>
+            </dependency>
 
 
 

@@ -43,7 +43,7 @@ public class BaseAPI_URL_BY_TEST {
     public Properties OR = new Properties();
     public Properties Config = new Properties();
     public FileInputStream fis;
-    public static Logger log = Logger.getLogger(BaseAPI_URL_BY_TEST.class);
+    public Logger log = Logger.getLogger(BaseAPI_URL_BY_TEST.class);
 
 
 

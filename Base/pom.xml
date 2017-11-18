@@ -16,6 +16,21 @@
 
     <dependencies>
 
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.detro.ghostdriver/phantomjsdriver
+
+        https://github.com/detro/ghostdriver-->
+        <dependency>
+            <groupId>com.github.detro.ghostdriver</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+        </dependency>
+
+
         <dependency>
             <groupId>org.uncommons</groupId>
             <artifactId>reportng</artifactId>
@@ -130,6 +145,16 @@
         <dependency>
             <groupId>com.applitools</groupId>
             <artifactId>eyes-selenium-java3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>3.5.3</version>
         </dependency>
 
 
