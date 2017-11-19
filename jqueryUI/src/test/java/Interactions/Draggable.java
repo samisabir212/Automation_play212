@@ -14,7 +14,7 @@ public class Draggable extends BaseAPI_URL_BY_TEST {
 
 
     @Parameters("url")
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void dragMe(String url) throws InterruptedException {
 
 

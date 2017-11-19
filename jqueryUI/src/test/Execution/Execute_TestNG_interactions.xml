@@ -33,13 +33,6 @@
 
 
 
-    <test name="jqueryUI widgets">
-        <classes>
-
-
-        </classes>
-    </test>
-
 
 </suite>
 
