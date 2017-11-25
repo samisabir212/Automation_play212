@@ -8790,7 +8790,8 @@
 12:34:49,954 DEBUG headers:138 - http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.1 (Java/1.8.0_131)
 12:34:49,954 DEBUG headers:138 - http-outgoing-0 >> Accept-Encoding: gzip,deflate
 12:34:49,954 DEBUG wire:72 - http-outgoing-0 >> "DELETE /wd/hub/session/1f6dbf81-5710-4573-9ecf-1370e6cadd78 HTTP/1.1[\r][\n]"
-12:34:49,955 DEBUG wire:72 - http-outgoing-0 >> "Host: 192.168.1.175:4444[\r][\n]"
+12:34:49,955 DEBUG wire:72 - http-outgoing-0 >
+> "Host: 192.168.1.175:4444[\r][\n]"
 12:34:49,955 DEBUG wire:72 - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
 12:34:49,955 DEBUG wire:72 - http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.1 (Java/1.8.0_131)[\r][\n]"
 12:34:49,955 DEBUG wire:72 - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"

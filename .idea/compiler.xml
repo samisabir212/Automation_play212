@@ -11,10 +11,10 @@
         <module name="COMDEMOQABOOTCAMP" />
         <module name="DEMOQA_BOOTCAMP" />
         <module name="EDMUNDS" />
+        <module name="GEICO" />
         <module name="jqueryUI" />
         <module name="PetFinder" />
         <module name="POM_FrameWork_Raman" />
-        <module name="ReallyMello" />
         <module name="TdAmeritrade" />
         <module name="Way2Automation" />
       </profile>
@@ -26,6 +26,7 @@
       <module name="DEMOQA_BOOTCAMP" target="1.5" />
       <module name="EDMUNDS" target="1.5" />
       <module name="Edmunds" target="1.5" />
+      <module name="GEICO" target="1.5" />
       <module name="jqueryUI" target="1.5" />
       <module name="PetFinder" target="1.5" />
       <module name="PIIT.FORUM.US" target="1.5" />

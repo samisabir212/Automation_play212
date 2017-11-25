@@ -51,11 +51,11 @@ public class BaseAPI_URL_BY_TEST {
 
 
 
-    @Parameters({"useCloud", "cloudUserName", "cloudAccessKey", "useGrid", "plateform", "os", "browserName", "browserVersion"})
+    @Parameters({"useCloud", "cloudUserName", "cloudAccessKey", "useGrid", "plateform", "os", "browserName", "browserVersion","url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloud, @Optional("sami212") String cloudUserName,
                       @Optional("####") String cloudAccessKey, @Optional("false") boolean useGrid, @Optional("Mac") String platform, @Optional("Windows 10") String os,
-                      @Optional("firefox") String browserName, @Optional("58") String browserVersion
+                      @Optional("firefox") String browserName, @Optional("58") String browserVersion, String url
                       ) throws MalformedURLException {
 
 
@@ -83,7 +83,10 @@ public class BaseAPI_URL_BY_TEST {
 
         //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        //driver.get(url);
+        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
+
+        //driver.get(url);   //<-- doesnt keep history of the pages you navigated to
+       // driver.navigate().to(url);
 
 
 
@@ -205,7 +208,7 @@ public class BaseAPI_URL_BY_TEST {
     @AfterMethod
     public void tearDown() {
 
-        driver.close();
+        //driver.close();
 
         driver.quit();
 

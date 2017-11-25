@@ -5,18 +5,22 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  * Created by sami on 11/14/17.
  */
 public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
 
 
-    String monthly_payment = "444";
-    String zipcode = "22042";
-    String financeRate = "1.99";
-    String tradeinvalue = "15000";
-    String valueOwed = "2000";
-    String cashDownPayment = "5000";
+    private String monthly_payment = "444";
+    private String zipcode = "22042";
+    private String financeRate = "1.99";
+    private String tradeinvalue = "15000";
+    private String valueOwed = "2000";
+    private String cashDownPayment = "5000";
 
 
     @Parameters("url")
@@ -34,6 +38,7 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
     public void EdmundsCalcTotalTest(String url) throws InterruptedException {
 
 
+
         //launch app navigate to edmunds
         driver.get(url);
         log.debug("Edmunds Calc app is launched");
@@ -43,9 +48,11 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
 
         //verify you are on edmunds.com/calculators page
         //verifyURL("http://edmunds.com/calculators");
+
         getCurrentPageUrl();
         waitForElement(10, By.id("calc_input3"));
         //enter 444 in 'enter monthly payment field'
+        //typeByID("calc_input3",System.getProperty(OR.getProperty("monthly_payment")));
         typeByID("calc_input3", monthly_payment);
         waitForElement(3, By.cssSelector("button[class='medium blue button calculator-go']"));
 
@@ -58,6 +65,7 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
 
         waitForElement(20, By.id("ac_zip_code"));
         //enter 22042 in zipcode field
+        //typeBy(By.id("ac_zip_code"), System.getProperty(OR.getProperty("zipcode")));
         typeBy(By.id("ac_zip_code"), zipcode);
 
         //click 'update zipcode' button
@@ -68,10 +76,12 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
 
 
         //enter '1.99' in finance field
+        //typeBy(By.id("ac_market_finance_rate"),System.getProperty(OR.getProperty("financeRate")));
         typeBy(By.id("ac_market_finance_rate"), financeRate);
 
 
         //enter '15000' in "Value of Your Trade-In " field
+        //typeBy(By.id("ac_vehicle2_price"), System.getProperty(OR.getProperty("tradeinvalue")));
         typeBy(By.id("ac_vehicle2_price"), tradeinvalue);
 
         //enter '' in "Amount Owed on Your Trade-In "
@@ -86,6 +96,10 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
         //clickByXpath("//fieldset[@class='calc-calculate-button']//button[@id='calculate-button']");
 
         clickJavaScriptActionsClick(By.id("calculate-button"));
+
+
+
+        okAlert();
 
         //verify expected resullt vs actual result
 

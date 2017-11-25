@@ -27,7 +27,7 @@ public class Registration_DDExcel extends BaseAPI_URL_BY_TEST {
 
 
     @Parameters("url_Registration")
-    @Test(enabled = true, dataProviderClass = DataProvidors_RegistrationDQ.class,dataProvider = "RegistrationExcelDP")
+    @Test(enabled = false, dataProviderClass = DataProvidors_RegistrationDQ.class,dataProvider = "RegistrationExcelDP")
     public void registrationDemoExcel(Hashtable<String, String> data, String url_Registration) throws AWTException, InterruptedException {
 
 

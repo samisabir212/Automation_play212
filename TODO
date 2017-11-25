@@ -1,0 +1,7 @@
+make sure your generating screen shots on failures
+
+make sure you are logging everything
+
+make sure you are reporting with extent report
+
+make sure you are using listeners
