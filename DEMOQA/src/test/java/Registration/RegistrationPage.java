@@ -29,7 +29,9 @@ public class RegistrationPage extends BaseAPIs {
         //click Registration page link
         clickById("menu-item-374");
         //enter First Name
-        typeByID("name_3_firstname", "Sami");
+        typeByID("name_3_firstname", "sami");
+
+
         //enter last name
         typeByID("name_3_lastname", "Sabir");
 

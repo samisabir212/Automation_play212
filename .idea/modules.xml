@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/PetFinder/PetFinder.iml" filepath="$PROJECT_DIR$/PetFinder/PetFinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/SeleniumBootCamp.iml" filepath="$PROJECT_DIR$/SeleniumBootCamp.iml" />
       <module fileurl="file://$PROJECT_DIR$/TdAmeritrade/TdAmeritrade.iml" filepath="$PROJECT_DIR$/TdAmeritrade/TdAmeritrade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Twitter/Twitter.iml" filepath="$PROJECT_DIR$/Twitter/Twitter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Way2Automation/Way2Automation.iml" filepath="$PROJECT_DIR$/Way2Automation/Way2Automation.iml" />
       <module fileurl="file://$PROJECT_DIR$/jqueryUI/jqueryUI.iml" filepath="$PROJECT_DIR$/jqueryUI/jqueryUI.iml" />
     </modules>

@@ -82,8 +82,8 @@ public class BaseAPI_URL_BY_TEST {
 
 
         //driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        //driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
 
         //driver.get(url);   //<-- doesnt keep history of the pages you navigated to
        // driver.navigate().to(url);
@@ -308,7 +308,7 @@ public class BaseAPI_URL_BY_TEST {
 
     /***********************************************************************/
 
-    /**********TYPE SEND KEYS*********/
+    /**********TYPE SEND KEYS  (typing in fields)*********/
 
     public void typeBy(By locator, String value) {
 

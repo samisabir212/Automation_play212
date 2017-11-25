@@ -16,6 +16,7 @@
         <module name="PetFinder" />
         <module name="POM_FrameWork_Raman" />
         <module name="TdAmeritrade" />
+        <module name="Twitter" />
         <module name="Way2Automation" />
       </profile>
     </annotationProcessing>
@@ -36,6 +37,7 @@
       <module name="SeleniumBootCamp" target="1.5" />
       <module name="TdAmeritrade" target="1.5" />
       <module name="test" target="1.5" />
+      <module name="Twitter" target="1.5" />
       <module name="Way2Automation" target="1.5" />
     </bytecodeTargetLevel>
   </component>

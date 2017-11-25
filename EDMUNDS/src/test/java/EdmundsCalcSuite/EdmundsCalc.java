@@ -23,8 +23,12 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
     private String cashDownPayment = "5000";
 
 
+    public static void main(String[] args) {
+
+    }
+
     @Parameters("url")
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void launchEdmundsCalc(String url) {
 
 
@@ -34,7 +38,7 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
     }
 
     @Parameters("url")
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void EdmundsCalcTotalTest(String url) throws InterruptedException {
 
 
@@ -102,6 +106,16 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
         okAlert();
 
         //verify expected resullt vs actual result
+
+    }
+
+
+    @Parameters("url_otherpage")
+    @Test(enabled = true)
+    public void edmundsCheckcars(String url_otherpage) {
+
+        driver.get(url_otherpage);
+
 
     }
 }

@@ -11,6 +11,7 @@
 
 
     <modules>
+
         <module>Base</module>
         <module>Amazon</module>
         <module>DEMOQA</module>
@@ -19,6 +20,8 @@
         <module>jqueryUI</module>
         <module>EDMUNDS</module>
         <module>GEICO</module>
+        <module>Twitter</module>
+
     </modules>
 
 

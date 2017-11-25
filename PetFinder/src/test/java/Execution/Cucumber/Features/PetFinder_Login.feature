@@ -12,6 +12,7 @@ Feature: this feature is for making sure a user can login with a valid username 
     And I should be Redirected to the Profile page
 
 
+
 #  Scenario Outline:  validate that a user can login with valid username and password using Scenario outline
 #
 #

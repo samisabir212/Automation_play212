@@ -45,15 +45,25 @@ public class readExcelData {
 
         //checking test columns
 
-        int colStart = testCaseRowNum + 1;
-        int testcolumns = 0;
+        int colStartColNum = testCaseRowNum + 1;
+        int testCols = 0;
 
 
-        while (!excel.getCellData(Constants.DATA_SHEET, testcolumns, colStart).equals("")) {
-            colStart++;
+        while (!excel.getCellData(Constants.DATA_SHEET, testCols, colStartColNum).equals("")) {
+            colStartColNum++;
         }
 
-        System.out.println("total columns in this test case are : " + colStart);
+        System.out.println("total columns in this test case are : " + colStartColNum);
 
+
+        //printing data
+
+        for (int rNum = dataStartRowNum; rNum<(dataStartRowNum+testrows); rNum++) {
+
+            for (int cNum = 0; cNum<colStartColNum; cNum++) {
+                System.out.println(excel.getCellData(Constants.DATA_SHEET, cNum, rNum));
+
+            }
+        }
     }
 }
