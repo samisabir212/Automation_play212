@@ -21,24 +21,18 @@
         <module name="Way2Automation" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.7">
       <module name="Amazon" target="1.5" />
       <module name="Appium_First" target="1.5" />
       <module name="Base" target="1.5" />
-      <module name="COMDEMOQABOOTCAMP" target="1.5" />
       <module name="DEMOQA_BOOTCAMP" target="1.5" />
       <module name="EDMUNDS" target="1.5" />
-      <module name="Edmunds" target="1.5" />
       <module name="GEICO" target="1.5" />
       <module name="jqueryUI" target="1.5" />
       <module name="PetFinder" target="1.5" />
-      <module name="PIIT.FORUM.US" target="1.5" />
-      <module name="PIIT_FORUM" target="1.5" />
       <module name="POM_FrameWork_Raman" target="1.5" />
-      <module name="ReallyMello" target="1.5" />
       <module name="SeleniumBootCamp" target="1.5" />
       <module name="TdAmeritrade" target="1.5" />
-      <module name="test" target="1.5" />
       <module name="Twitter" target="1.5" />
       <module name="Way2Automation" target="1.5" />
     </bytecodeTargetLevel>
