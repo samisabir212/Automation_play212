@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Amazon" />
+        <module name="Appium_First" />
         <module name="Base" />
         <module name="COMDEMOQABOOTCAMP" />
         <module name="DEMOQA_BOOTCAMP" />
@@ -22,6 +23,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Amazon" target="1.5" />
+      <module name="Appium_First" target="1.5" />
       <module name="Base" target="1.5" />
       <module name="COMDEMOQABOOTCAMP" target="1.5" />
       <module name="DEMOQA_BOOTCAMP" target="1.5" />

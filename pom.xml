@@ -21,6 +21,8 @@
         <module>EDMUNDS</module>
         <module>GEICO</module>
         <module>Twitter</module>
+        <module>Appium_First</module>
+
 
     </modules>
 
