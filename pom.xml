@@ -21,7 +21,7 @@
         <module>EDMUNDS</module>
         <module>GEICO</module>
         <module>Twitter</module>
-        <module>Appium_First</module>
+        <module>Appium</module>
 
 
     </modules>
@@ -93,6 +93,12 @@
                 <version>1.1.4</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+            <dependency>
+                <groupId>io.appium</groupId>
+                <artifactId>java-client</artifactId>
+                <version>4.1.2</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <dependency>

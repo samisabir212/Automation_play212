@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Amazon/Amazon.iml" filepath="$PROJECT_DIR$/Amazon/Amazon.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Appium_First/Appium_First.iml" filepath="$PROJECT_DIR$/Appium_First/Appium_First.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Appium/Appium.iml" filepath="$PROJECT_DIR$/Appium/Appium.iml" />
       <module fileurl="file://$PROJECT_DIR$/Base/Base.iml" filepath="$PROJECT_DIR$/Base/Base.iml" />
       <module fileurl="file://$PROJECT_DIR$/DEMOQA/DEMOQA_BOOTCAMP.iml" filepath="$PROJECT_DIR$/DEMOQA/DEMOQA_BOOTCAMP.iml" />
       <module fileurl="file://$PROJECT_DIR$/EDMUNDS/EDMUNDS.iml" filepath="$PROJECT_DIR$/EDMUNDS/EDMUNDS.iml" />
