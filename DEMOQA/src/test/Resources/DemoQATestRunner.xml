@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Demo QA" parallel="tests">
+<suite name="Demo QA" verbose="1" parallel="tests">
 
     <parameter name="useCloud" value="false"/>
     <parameter name="cloudUserName" value="rahmanww"/>

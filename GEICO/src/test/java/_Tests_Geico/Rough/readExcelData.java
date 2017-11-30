@@ -7,6 +7,7 @@ public class readExcelData {
 
     public static void main(String[] args) {
 
+
         ExcelReader excel = new ExcelReader("/Users/sami/IdeaProjects/SeleniumBootCamp/GEICO/src/test/java/Utilities/Excel_Data/GeicoExcelData.xlsx");
 
         int rows = excel.getRowCount(Constants.DATA_SHEET);
@@ -14,6 +15,7 @@ public class readExcelData {
 
         String testName = "AutoInsuranceStartQuoteByZipcode";
         String testName2 = "HomeInsuranceStartQuoteByZipcode";
+
         int testCaseRowNum = 1;
 
         for(testCaseRowNum=1; testCaseRowNum<=rows; testCaseRowNum++){

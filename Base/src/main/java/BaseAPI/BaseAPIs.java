@@ -638,7 +638,9 @@ public class BaseAPIs {
         driver.navigate().forward();
     }
 
-    //Synchronization
+
+
+   /* //Synchronization
     public void waitUntilClickAble(String locator){
 
 
@@ -646,7 +648,7 @@ public class BaseAPIs {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 
-    }
+    }*/
 
 
     public void implicitWait(Long waitTime) {

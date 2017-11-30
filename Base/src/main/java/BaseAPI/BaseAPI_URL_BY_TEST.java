@@ -34,7 +34,6 @@ import java.util.concurrent.TimeUnit;
 public class BaseAPI_URL_BY_TEST {
 
 
-
     //initialize webdriver to nill
     public WebDriver driver = null;
     public JavascriptExecutor js;
@@ -50,12 +49,18 @@ public class BaseAPI_URL_BY_TEST {
 
 
 
-
-    @Parameters({"useCloud", "cloudUserName", "cloudAccessKey", "useGrid", "plateform", "os", "browserName", "browserVersion","url"})
+    @Parameters({"useCloud", "cloudUserName", "cloudAccessKey", "useGrid",
+            "plateform", "os", "browserName", "browserVersion","url"})
     @BeforeMethod
-    public void setUp(@Optional("false") boolean useCloud, @Optional("sami212") String cloudUserName,
-                      @Optional("####") String cloudAccessKey, @Optional("false") boolean useGrid, @Optional("Mac") String platform, @Optional("Windows 10") String os,
-                      @Optional("firefox") String browserName, @Optional("58") String browserVersion, String url
+    public void setUp(@Optional("false") boolean useCloud,
+                      @Optional("sami212") String cloudUserName,
+                      @Optional("####") String cloudAccessKey,
+                      @Optional("false") boolean useGrid,
+                      @Optional("Mac") String platform,
+                      @Optional("Windows 10") String os,
+                      @Optional("firefox") String browserName,
+                      @Optional("58") String browserVersion,
+                      @Optional("http://google.com") String url
                       ) throws MalformedURLException {
 
 

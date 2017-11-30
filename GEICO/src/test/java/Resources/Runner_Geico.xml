@@ -21,9 +21,6 @@
     now you can add the page object model to the new Base-->
 
 
-
-
-
     <test name = "Start Quote by zip code at home page">
         <classes>
             <class name="_Tests_Geico.Geico_StartQuote"/>

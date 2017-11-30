@@ -20,6 +20,7 @@ public class Twitter_homePage {
 
         driver.findElement(By.linkText("News")).click();
 
+
         Thread.sleep(500);
 
         driver.close();
