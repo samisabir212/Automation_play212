@@ -10,7 +10,7 @@
     <parameter name="useGrid" value="false"/>
     <parameter name="os" value="Mac"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="browserVersion" value="55.0"/>
+    <parameter name="browserVersion" value="54.0"/>
     <parameter name="url" value="http://edmunds.com/calculators"/>
 
 

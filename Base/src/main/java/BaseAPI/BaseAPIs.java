@@ -7,6 +7,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -73,7 +74,9 @@ public class BaseAPIs {
 
 
         //driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+
         driver.get(url);
 
 
@@ -123,6 +126,10 @@ public class BaseAPIs {
             }
 
             driver = new InternetExplorerDriver();
+        } else if (os.equalsIgnoreCase("Safari")) {
+
+            driver = new SafariDriver();
+
         }
 
         return driver;
@@ -195,7 +202,6 @@ public class BaseAPIs {
     @AfterMethod
     public void tearDown() {
 
-        driver.close();
 
         driver.quit();
 

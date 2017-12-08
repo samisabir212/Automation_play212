@@ -1,14 +1,16 @@
 package BaseAPI;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Dimension;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,6 +19,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.testng.log4testng.Logger;
 
 import java.awt.*;
 import java.io.FileInputStream;
@@ -31,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by sami on 10/16/17.
  */
-public class BaseAPI_URL_BY_TEST {
+public abstract class BaseAPI_URL_BY_TEST {
 
 
     //initialize webdriver to nill
@@ -140,6 +143,16 @@ public class BaseAPI_URL_BY_TEST {
             }
 
             driver = new InternetExplorerDriver();
+
+
+        } else if (os.equalsIgnoreCase("Mac")) {
+            if (browserName.equalsIgnoreCase("Safari")) {
+
+                driver = new SafariDriver();
+
+            }
+
+
         }
 
         return driver;
@@ -196,6 +209,7 @@ public class BaseAPI_URL_BY_TEST {
         }
         // Version
         caps.setVersion(browserVersion);
+
         driver = new RemoteWebDriver(new URL(nodeURL), caps);
         // Maximize the browserName's window
         // driver.manage().window().maximize();
@@ -390,8 +404,13 @@ public class BaseAPI_URL_BY_TEST {
         driver.findElement(By.cssSelector(locator)).clear();
     }
 
+
+    //pass the locator and pass the type of locator and it will automatically generate
     public WebElement getElement(String locator, String type) {
+
+
         type = type.toLowerCase();
+
         if (type.equals("id")) {
             System.out.println("Element found with id: " + locator);// you can change it and make it print ID by changing locator to type
             return this.driver.findElement(By.id(locator));
@@ -504,6 +523,8 @@ public class BaseAPI_URL_BY_TEST {
         return url;
     }
 
+    //***********************************************
+
 
 
 
@@ -511,6 +532,10 @@ public class BaseAPI_URL_BY_TEST {
     public void sleepFor(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
+
+
+
+    //***********************************************
 
 
     //get list of dropdown option1
@@ -526,6 +551,9 @@ public class BaseAPI_URL_BY_TEST {
         }
 
     }
+
+
+
 
     //get list of dropdown option2
     public List<String> getAllOptions(By by) {
@@ -546,9 +574,12 @@ public class BaseAPI_URL_BY_TEST {
     public List<WebElement> getListOfWebElementsByXpath(String locator) {
         List<WebElement> list = new ArrayList<WebElement>();
         list = driver.findElements(By.xpath(locator));
+
         return list;
 
     }
+
+
 
     public List<WebElement> getListOfWebElementsByID(String locator) {
         List<WebElement> list = new ArrayList<WebElement>();
@@ -580,13 +611,18 @@ public class BaseAPI_URL_BY_TEST {
 
 
     public List<String> getListOfString(List<WebElement> list) {
+
         List<String> items = new ArrayList<String>();
         for (WebElement element : list) {
-            items.add(element.getText());
+
+            items.add(element.getText()); //using the Element Text
         }
         return items;
+
     }
 
+
+    //***********************************************
 
     //used to capture screen shot create file name
     public static String getRandomString(int length) {
@@ -601,6 +637,9 @@ public class BaseAPI_URL_BY_TEST {
 
 
     }
+
+
+    //***********************************************
 
 
     //handling Alert

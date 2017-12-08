@@ -1,5 +1,6 @@
 package Registration;
 
+import BaseAPI.BaseAPI_URL_BY_TEST;
 import BaseAPI.BaseAPIs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -29,6 +30,8 @@ public class RegistrationPage extends BaseAPIs {
         //click Registration page link
         clickById("menu-item-374");
         //enter First Name
+
+        waitForElement(10,By.id("name_3_firstname"));
         typeByID("name_3_firstname", "sami");
 
 
@@ -51,6 +54,9 @@ public class RegistrationPage extends BaseAPIs {
             System.out.println(iterator.next().getAttribute("value"));
 
         }
+
+
+
 
         //select month DOB
         clickByXpath(".//select[@id='mm_date_8']//option[@value=10]");
