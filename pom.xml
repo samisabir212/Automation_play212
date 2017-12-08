@@ -23,7 +23,6 @@
         <module>Twitter</module>
         <module>Appium</module>
 
-
     </modules>
 
 
@@ -254,6 +253,11 @@
 </dependencies>
 
     </dependencyManagement>
+
+
+
+
+
 
 
     <build>

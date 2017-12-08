@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="junit-4.10" level="project" />
     <orderEntry type="module" module-name="SeleniumBootCamp" />
     <orderEntry type="module" module-name="Base" />
     <orderEntry type="library" name="Maven: io.appium:java-client:4.1.2" level="project" />
