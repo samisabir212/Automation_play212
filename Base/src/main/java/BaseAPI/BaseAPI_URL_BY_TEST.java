@@ -261,6 +261,17 @@ public abstract class BaseAPI_URL_BY_TEST {
     /*******************************ACTION METHODS****************************************/
 
 
+    /*******************************Before every test at launch****************************************/
+
+    public void fix_maxmize_deletecookies_wait() {
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
+    }
+
+
     /*******************************MAXIMIZE WINDOWS FOR DIFFERENT BROWSERS****************************************/
 
     public void maximize_IEandFirefox_Browsers() {
@@ -270,6 +281,7 @@ public abstract class BaseAPI_URL_BY_TEST {
 
     }
 
+    //maximize chrome
     public void maximize_ToolKit() {
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -396,14 +408,14 @@ public abstract class BaseAPI_URL_BY_TEST {
     }
 
 
-    /******************************************************************/
+    /*****************************CLEAR INPUTFIELD*************************************/
 
 
-    public void clearInputFieldByCSS(String locator) {
+    public void clearInputField(By locator) {
 
-        driver.findElement(By.cssSelector(locator)).clear();
+        driver.findElement(locator).clear();
     }
-
+/**********************************************************/
 
     //pass the locator and pass the type of locator and it will automatically generate
     public WebElement getElement(String locator, String type) {

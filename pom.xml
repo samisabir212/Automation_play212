@@ -13,7 +13,6 @@
     <modules>
 
         <module>Base</module>
-        <module>Amazon</module>
         <module>DEMOQA</module>
         <module>Way2Automation</module>
         <module>PetFinder</module>
