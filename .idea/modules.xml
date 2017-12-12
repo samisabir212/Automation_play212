@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Appium/Appium.iml" filepath="$PROJECT_DIR$/Appium/Appium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Amazon/Amazon.iml" filepath="$PROJECT_DIR$/Amazon/Amazon.iml" />
       <module fileurl="file://$PROJECT_DIR$/Base/Base.iml" filepath="$PROJECT_DIR$/Base/Base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Cucumber/Cucumber.iml" filepath="$PROJECT_DIR$/Cucumber/Cucumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/DEMOQA/DEMOQA_BOOTCAMP.iml" filepath="$PROJECT_DIR$/DEMOQA/DEMOQA_BOOTCAMP.iml" />
       <module fileurl="file://$PROJECT_DIR$/EDMUNDS/EDMUNDS.iml" filepath="$PROJECT_DIR$/EDMUNDS/EDMUNDS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExtendedBase.iml" filepath="$PROJECT_DIR$/ExtendedBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/GEICO/GEICO.iml" filepath="$PROJECT_DIR$/GEICO/GEICO.iml" />
-      <module fileurl="file://$PROJECT_DIR$/POM_FrameWork_Raman/POM_FrameWork_Raman.iml" filepath="$PROJECT_DIR$/POM_FrameWork_Raman/POM_FrameWork_Raman.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PetFinder/PetFinder.iml" filepath="$PROJECT_DIR$/PetFinder/PetFinder.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SeleniumBootCamp.iml" filepath="$PROJECT_DIR$/SeleniumBootCamp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TdAmeritrade/TdAmeritrade.iml" filepath="$PROJECT_DIR$/TdAmeritrade/TdAmeritrade.iml" />
       <module fileurl="file://$PROJECT_DIR$/Twitter/Twitter.iml" filepath="$PROJECT_DIR$/Twitter/Twitter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Way2Automation/Way2Automation.iml" filepath="$PROJECT_DIR$/Way2Automation/Way2Automation.iml" />
       <module fileurl="file://$PROJECT_DIR$/jqueryUI/jqueryUI.iml" filepath="$PROJECT_DIR$/jqueryUI/jqueryUI.iml" />

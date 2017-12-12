@@ -6,30 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Appium" />
+        <module name="Amazon" />
         <module name="Appium_First" />
         <module name="Base" />
         <module name="COMDEMOQABOOTCAMP" />
-        <module name="Cucumber" />
         <module name="DEMOQA_BOOTCAMP" />
         <module name="EDMUNDS" />
         <module name="GEICO" />
         <module name="jqueryUI" />
-        <module name="PetFinder" />
-        <module name="POM_FrameWork_Raman" />
-        <module name="TdAmeritrade" />
         <module name="Twitter" />
         <module name="Way2Automation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="Amazon" target="1.5" />
+      <module name="Amazon" target="1.8" />
       <module name="Appium" target="1.5" />
       <module name="Appium_First" target="1.5" />
       <module name="Base" target="1.5" />
       <module name="Cucumber" target="1.5" />
       <module name="DEMOQA_BOOTCAMP" target="1.5" />
       <module name="EDMUNDS" target="1.5" />
+      <module name="ExtendedBase" target="1.5" />
       <module name="GEICO" target="1.5" />
       <module name="jqueryUI" target="1.5" />
       <module name="PetFinder" target="1.5" />

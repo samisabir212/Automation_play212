@@ -103,14 +103,14 @@
     <orderEntry type="library" name="Maven: com.typesafe:config:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.rauschig:jarchivelib:0.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.9" level="project" />
-    <orderEntry type="library" name="Maven: com.applitools:eyes-selenium-java3:3.28" level="project" />
-    <orderEntry type="library" name="Maven: com.applitools:eyes-common-java3:3.28" level="project" />
+    <orderEntry type="library" name="Maven: com.applitools:eyes-selenium-java3:3.29" level="project" />
+    <orderEntry type="library" name="Maven: com.applitools:eyes-common-java3:3.29" level="project" />
     <orderEntry type="library" name="Maven: org.imgscalr:imgscalr-lib:4.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.1" level="project" />
-    <orderEntry type="library" name="Maven: com.applitools:eyes-sdk-core-java3:3.28" level="project" />
-    <orderEntry type="library" name="Maven: com.applitools:eyes-connectivity-java3-jersey2x:3.28" level="project" />
+    <orderEntry type="library" name="Maven: com.applitools:eyes-sdk-core-java3:3.29" level="project" />
+    <orderEntry type="library" name="Maven: com.applitools:eyes-connectivity-java3-jersey2x:3.29" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.connectors:jersey-apache-connector:2.16" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.16" level="project" />
     <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.2" level="project" />

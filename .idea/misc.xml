@@ -6,22 +6,19 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/test/pom.xml" />
         <option value="$PROJECT_DIR$/Base/pom.xml" />
-        <option value="$PROJECT_DIR$/TdAmeritrade/pom.xml" />
         <option value="$PROJECT_DIR$/COMDEMOQABOOTCAMP/pom.xml" />
         <option value="$PROJECT_DIR$/Way2Automation/pom.xml" />
-        <option value="$PROJECT_DIR$/PetFinder/pom.xml" />
-        <option value="$PROJECT_DIR$/POM_FrameWork_Raman/pom.xml" />
         <option value="$PROJECT_DIR$/jqueryUI/pom.xml" />
         <option value="$PROJECT_DIR$/GEICO/pom.xml" />
         <option value="$PROJECT_DIR$/Twitter/pom.xml" />
-        <option value="$PROJECT_DIR$/Appium/pom.xml" />
-        <option value="$PROJECT_DIR$/Cucumber/pom.xml" />
+        <option value="$PROJECT_DIR$/Amazon/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/Amazon/pom.xml" />
+        <option value="$PROJECT_DIR$/Appium/pom.xml" />
         <option value="$PROJECT_DIR$/PIIT_FORUM/pom.xml" />
+        <option value="$PROJECT_DIR$/PetFinder/pom.xml" />
       </set>
     </option>
   </component>

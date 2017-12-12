@@ -110,7 +110,7 @@ public abstract class BaseAPI_URL_BY_TEST {
         if (browserName.equalsIgnoreCase("chrome")) {
 
             if (os.equalsIgnoreCase("Mac")) {
-                System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/COpy/SeleniumFrameWork/Base/src/main/java/Drivers/chromedriver");
 
             } else if (os.equalsIgnoreCase("Win10")) {
                 System.setProperty("webdriver.chrome.driver", "Windows path for chrome driver here.");
@@ -159,7 +159,8 @@ public abstract class BaseAPI_URL_BY_TEST {
 
     }
 
-    public WebDriver getCloudDriver(String cloudUserName, String cloudAccessKey, String os, String browserName, String browserVersion) throws MalformedURLException {
+    public WebDriver getCloudDriver(String cloudUserName, String cloudAccessKey, String os,
+                                    String browserName, String browserVersion) throws MalformedURLException {
 
         //create an instance of Desired Capablities called cap
         {
@@ -349,6 +350,11 @@ public abstract class BaseAPI_URL_BY_TEST {
 
     }
 
+    public void typeBy_EnterKey(By locator, String value) {
+
+        driver.findElement(locator).sendKeys(value, Keys.ENTER);
+    }
+
 
     public void typeByCss(String locator, String value) {
 
@@ -518,11 +524,30 @@ public abstract class BaseAPI_URL_BY_TEST {
         }
     }
 
+
     public void verifyURL(String ExpectedURL) {
 
         String url = driver.getCurrentUrl();
 
-        Assert.assertEquals(url,ExpectedURL);
+        if(url.equals(ExpectedURL)) {
+            System.out.println("verify url :: Passed");
+        }else {
+            System.out.println("verify url :: Failed");
+        }
+
+    }
+
+    public void verifyTitle(String ExpectedTitle) {
+
+
+        String title = driver.getTitle();
+
+        if(title.equals(ExpectedTitle)) {
+            System.out.println("verify title :: Passed");
+        }else {
+            System.out.println("verify title :: Failed");
+        }
+
 
     }
 
@@ -534,6 +559,8 @@ public abstract class BaseAPI_URL_BY_TEST {
 
         return url;
     }
+
+
 
     //***********************************************
 
@@ -817,7 +844,7 @@ public abstract class BaseAPI_URL_BY_TEST {
             System.out.println("waiting for maximum :: " + timeout + "seconds for the element to be available");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-            System.out.println("element appeared on the webpage");
+
 
         } catch (Exception e) {
 

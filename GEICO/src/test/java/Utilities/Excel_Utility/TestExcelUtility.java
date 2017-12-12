@@ -5,7 +5,7 @@ import Utilities.Constants.Constants;
 public class TestExcelUtility {
 
 
-
+/*
     //checking if runmode in the suite excel file in suite sheet is set to Y or N
     public static boolean isSuiteRunnable(String suiteName, ExcelReader excel) {
 
@@ -19,5 +19,5 @@ public class TestExcelUtility {
 
 
 
-    }
+    }*/
 }
