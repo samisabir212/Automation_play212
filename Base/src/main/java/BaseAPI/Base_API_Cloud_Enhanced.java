@@ -159,8 +159,14 @@ public class Base_API_Cloud_Enhanced {
         return driver;
     }
 
-    public WebDriver getCloudDriver(String envName,String envUsername, String envAccessKey,String os, String os_version,String browserName,
-                                    String browserVersion)throws IOException {
+    public WebDriver getCloudDriver(String envName,
+                                    String envUsername,
+                                    String envAccessKey,
+                                    String os,
+                                    String os_version,
+                                    String browserName,
+                                    String browserVersion)
+                                    throws IOException {
 
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("browser",browserName);
