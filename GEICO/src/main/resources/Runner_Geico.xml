@@ -23,6 +23,7 @@
     <test name = "Start Quote by zip code at home page">
         <classes>
             <class name="_Tests_Geico.Geico_StartQuote"/>
+            <class name="_Tests_Geico.Rough.readExcelData"/>
         </classes>
     </test>
 
