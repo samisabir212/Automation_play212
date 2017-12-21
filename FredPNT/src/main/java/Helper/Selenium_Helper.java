@@ -1,276 +1,35 @@
-package BaseAPI;
+package Helper;
 
-import org.openqa.selenium.*;
+
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.log4testng.Logger;
 
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.*;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-/**
- * Created by sami on 10/16/17.
- */
-public abstract class BaseAPI_URL_BY_TEST {
-
-
-    //initialize webdriver to nill
-    public WebDriver driver = null;
-    public JavascriptExecutor js;
-
-
-    public Properties OR = new Properties();
-    public Properties Config = new Properties();
-    public FileInputStream fis;
-    public Logger log = Logger.getLogger(BaseAPI_URL_BY_TEST.class);
-
-
-
-
-
-
-    @Parameters({"useCloud", "cloudUserName", "cloudAccessKey", "useGrid",
-            "plateform", "os", "browserName", "browserVersion","url"})
-    @BeforeMethod
-    public void setUp(@Optional("false") boolean useCloud,
-                      @Optional("sami212") String cloudUserName,
-                      @Optional("####") String cloudAccessKey,
-                      @Optional("false") boolean useGrid,
-                      @Optional("Mac") String platform,
-                      @Optional("Windows 10") String os,
-                      @Optional("firefox") String browserName,
-                      @Optional("58") String browserVersion,
-                      @Optional("http://google.com") String url
-                      ) throws MalformedURLException {
-
-
-
-        //if we are using cloud enviurmment then use it else just get get local driver
-        if (useCloud == true) {
-            //run in cloud
-            getCloudDriver(cloudUserName, cloudAccessKey, os, browserName, browserVersion);
-            log.debug("useCloud driver launched");
-
-        } else if (useGrid == true) {
-
-            //run grid
-            // objectRepositoryStreamSetup();
-            getGridDriver(platform, browserName, browserVersion);
-            log.debug("useGrid driver launched");
-
-        } else {
-
-            getLocalDriver(os, browserName);
-            log.debug("Local driver Launched");
-
-        }
-
-
-        //driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        //driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
-
-        //driver.get(url);   //<-- doesnt keep history of the pages you navigated to
-       // driver.navigate().to(url);
-
-
-
-    }
-
-
-
-
-    //my local driver
-    public WebDriver getLocalDriver(String os, String browserName) {
-
-
-        if (browserName.equalsIgnoreCase("chrome")) {
-
-            if (os.equalsIgnoreCase("Mac")) {
-                System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/COpy/SeleniumFrameWork/Base/src/main/java/Drivers/chromedriver");
-
-            } else if (os.equalsIgnoreCase("Win10")) {
-                System.setProperty("webdriver.chrome.driver", "Windows path for chrome driver here.");
-
-            } else if (os.equalsIgnoreCase("Linux")) {
-                System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/chromedriverLinux");
-            }
-            driver = new ChromeDriver();
-
-        } else if (browserName.equalsIgnoreCase("firefox")) {
-
-
-            if (os.equalsIgnoreCase("Mac")) {
-                System.setProperty("webdriver.gecko.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/geckodriverMAC");
-
-            } else if (os.equalsIgnoreCase("Win10")) {
-                System.setProperty("webdriver.gecko.driver", "Windows path for chrome driver here.");
-
-            } else if (os.equalsIgnoreCase("Linux")) {
-                System.setProperty("webdriver.gecko.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/geckodriverLinux");
-
-            }
-
-            driver = new FirefoxDriver();
-
-        } else if (os.equalsIgnoreCase("Win")) {
-            if (browserName.equalsIgnoreCase("ie")) {
-                System.setProperty("webdriver.ie.driver", "IE windows path to driver here");
-
-            }
-
-            driver = new InternetExplorerDriver();
-
-
-        } else if (os.equalsIgnoreCase("Mac")) {
-            if (browserName.equalsIgnoreCase("Safari")) {
-
-                driver = new SafariDriver();
-
-            }
-
-
-        }
-
-        return driver;
-
-    }
-
-    public WebDriver getCloudDriver(String cloudUserName, String cloudAccessKey, String os,
-                                    String browserName, String browserVersion) throws MalformedURLException {
-
-        //create an instance of Desired Capablities called cap
-        {
-            DesiredCapabilities cap = new DesiredCapabilities();
-            cap.setCapability("cloudPlateform", os);
-            cap.setBrowserName(browserName);
-            cap.setCapability("version", browserVersion);
-            driver = new RemoteWebDriver(new URL("http://" + cloudUserName + ":" +
-                    cloudAccessKey + "@ondemand.saucelabs.com:80/wd/hub"), cap);
-
-            return driver;
-
-
-        }
-
-
-    }
-
-    //add url if it doesnt work
-    public WebDriver getGridDriver(String platform, String browserName, String browserVersion) throws MalformedURLException {
-
-
-        //passing node url to remote driver
-        String nodeURL = "http://192.168.1.175:4444/wd/hub";
-
-        WebDriver driver = null;
-
-        DesiredCapabilities caps = new DesiredCapabilities();
-
-        // Platforms
-        if (platform.equalsIgnoreCase("Windows")) {
-            caps.setPlatform(org.openqa.selenium.Platform.WINDOWS);
-        }
-        if (platform.equalsIgnoreCase("MAC")) {
-            caps.setPlatform(org.openqa.selenium.Platform.MAC);
-        }
-        if (browserName.equalsIgnoreCase("Linux")) {
-            caps.setPlatform(org.openqa.selenium.Platform.LINUX);
-        }
-
-        // Browsers
-        if (browserName.equalsIgnoreCase("chrome")) {
-            caps = DesiredCapabilities.chrome();
-        }
-        if (browserName.equalsIgnoreCase("firefox")) {
-            caps = DesiredCapabilities.firefox();
-        }
-        // Version
-        caps.setVersion(browserVersion);
-
-        driver = new RemoteWebDriver(new URL(nodeURL), caps);
-        // Maximize the browserName's window
-        // driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        // Open the Application
-        //driver.get(url);
-        return driver;
-
-
-    }
-
-
-
-
-    @AfterMethod
-    public void tearDown() {
-
-        //driver.close();
-
-        driver.quit();
-
-    }
-
-
-    public void objectRepositoryStreamSetup() {
-
-
-        /*
-        * used for retrieving object data from Object Repository properties file
-        * */
-        try {
-            fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/ObjectRepository/OR.properties");
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            OR.load(fis);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-
-
-        }
-    }
-
-
+public class Selenium_Helper {
+	
+	
+	
+	
+	WebDriver driver = null;
+	
+	
 
     /*******************************ACTION METHODS****************************************/
-
-
-    /*******************************Before every test at launch****************************************/
-
-    public void fix_maxmize_deletecookies_wait() {
-
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-    }
 
 
     /*******************************MAXIMIZE WINDOWS FOR DIFFERENT BROWSERS****************************************/
@@ -282,7 +41,6 @@ public abstract class BaseAPI_URL_BY_TEST {
 
     }
 
-    //maximize chrome
     public void maximize_ToolKit() {
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -350,11 +108,6 @@ public abstract class BaseAPI_URL_BY_TEST {
 
     }
 
-    public void typeBy_EnterKey(By locator, String value) {
-
-        driver.findElement(locator).sendKeys(value, Keys.ENTER);
-    }
-
 
     public void typeByCss(String locator, String value) {
 
@@ -414,14 +167,14 @@ public abstract class BaseAPI_URL_BY_TEST {
     }
 
 
-    /*****************************CLEAR INPUTFIELD*************************************/
+    /*****************************CLEAR INPUT FIELD*************************************/
 
 
     public void clearInputField(By locator) {
 
         driver.findElement(locator).clear();
     }
-/**********************************************************/
+
 
     //pass the locator and pass the type of locator and it will automatically generate
     public WebElement getElement(String locator, String type) {
@@ -524,31 +277,30 @@ public abstract class BaseAPI_URL_BY_TEST {
         }
     }
 
-
     public void verifyURL(String ExpectedURL) {
 
         String url = driver.getCurrentUrl();
 
         if(url.equals(ExpectedURL)) {
-            System.out.println("verify url :: Passed");
+        	System.out.println("verify url :: Passed");
         }else {
-            System.out.println("verify url :: Failed");
+        	System.out.println("verify url :: Failed");
         }
 
     }
-
+    
     public void verifyTitle(String ExpectedTitle) {
-
-
-        String title = driver.getTitle();
-
-        if(title.equals(ExpectedTitle)) {
-            System.out.println("verify title :: Passed");
-        }else {
-            System.out.println("verify title :: Failed");
-        }
-
-
+    	
+    	
+    	String title = driver.getTitle();
+   
+    	if(title.equals(ExpectedTitle)) {
+    		System.out.println("verify title :: Passed");
+    	}else {
+    		System.out.println("verify title :: Failed");
+    	}
+    	
+    	
     }
 
     public String getCurrentPageUrl() {
@@ -559,8 +311,6 @@ public abstract class BaseAPI_URL_BY_TEST {
 
         return url;
     }
-
-
 
     //***********************************************
 
@@ -814,9 +564,10 @@ public abstract class BaseAPI_URL_BY_TEST {
 
 
     //wait for page to load completely
-    public void implicitWait(Long waitTime) {
+    public void implicitWait(int impWait,int pageLoadT) {
 
-        driver.manage().timeouts().implicitlyWait(waitTime, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(impWait, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
 
 
     }
@@ -844,7 +595,7 @@ public abstract class BaseAPI_URL_BY_TEST {
             System.out.println("waiting for maximum :: " + timeout + "seconds for the element to be available");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-
+            System.out.println("element appeared on the webpage");
 
         } catch (Exception e) {
 

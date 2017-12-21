@@ -5,14 +5,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+public class Edmunds_MonthlyPayment_Calculator extends BaseAPI_URL_BY_TEST {
 
-/**
- * Created by sami on 11/14/17.
- */
-public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
 
 
     private String monthly_payment = "444";
@@ -23,21 +17,9 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
     private String cashDownPayment = "5000";
 
 
-
-    @Parameters("url")
+    @Parameters({"url"})
     @Test(enabled = true)
-    public void launchEdmundsCalc(String url) {
-
-
-        driver.get(url);
-
-
-    }
-
-    @Parameters("url")
-    @Test(enabled = false)
-    public void EdmundsCalcTotalTest(String url) throws InterruptedException {
-
+    public void what_can_i_afford(String url) {
 
 
         //launch app navigate to edmunds
@@ -62,7 +44,7 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
         clickByXpath("//div[@id='calc_index_affordability_calc']/form[@action='/calculators/affordability.html']//button[@name='Go']/span[.='Go']");
         //okAlert();
         goBackToHomeWindow();
-       // clickByXpath("//div[@id='calc_index_affordability_calc']/form[@action='/calculators/affordability.html']//button[@name='Go']/span[.='Go']");
+        // clickByXpath("//div[@id='calc_index_affordability_calc']/form[@action='/calculators/affordability.html']//button[@name='Go']/span[.='Go']");
 
         waitForElement(20, By.id("ac_zip_code"));
         //enter 22042 in zipcode field
@@ -104,11 +86,7 @@ public class EdmundsCalc extends BaseAPI_URL_BY_TEST {
 
         //verify expected resullt vs actual result
 
+
     }
 
-
 }
-
-
-
-

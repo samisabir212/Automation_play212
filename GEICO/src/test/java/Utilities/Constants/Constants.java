@@ -27,7 +27,7 @@ public class Constants {
     public static String AUTOINSURANCE_SUITE = "/Users/sami/IdeaProjects/SeleniumBootCamp/GEICO/src/test/java/Utilities/Excel_Data/AutoInsurance_Suite.xlsx";
 
 
-    public static String GeicoExcelData = "/Users/sami/IdeaProjects/SeleniumBootCamp/GEICO/src/test/java/Utilities/Excel_Data/GeicoExcelData.xlsx";
+    public static String GeicoExcelData = "//Users/sami/Desktop/COpy/SeleniumFrameWork/GEICO/src/test/java/Utilities/Excel_Data/GeicoExcelData.xlsx";
 
 
 
