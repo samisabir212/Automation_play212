@@ -337,7 +337,6 @@
             <id>Amazon-app</id>
             <modules>
                 <module>Base</module>
-                <module>Amazon</module>
             </modules>
         </profile>
 

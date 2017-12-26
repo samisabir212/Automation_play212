@@ -16,7 +16,9 @@ import java.util.List;
 import static org.testng.AssertJUnit.assertEquals;
 
 /**
- * Created by EliteBook on 4/25/2017.
+ * Created by EliteBook on 4/25/2017./Users/sami/VS2.jpg
+ *
+ *
  */
 public class RegistrationPage extends BaseAPIs {
 
@@ -78,7 +80,7 @@ public class RegistrationPage extends BaseAPIs {
 
 
         //upload profile picture [USE ROBOT FOR MAC}
-        uploadFile("profile_pic_10", "/Users/sami/VS2.jpg");
+       // uploadFile("profile_pic_10", "/Users/sami/VS2.jpg");
 
         //enter password
         typeByID("password_2", "AppleSeed2");
