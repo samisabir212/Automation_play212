@@ -8,9 +8,8 @@ import org.testng.annotations.Test;
 public class TestAmazonHome extends BaseAPI_URL_BY_TEST {
 
 
-
     @Parameters({"url"})
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void searchForAnyItem(String url) {
 
 

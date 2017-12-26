@@ -12,6 +12,7 @@
         <module name="COMDEMOQABOOTCAMP" />
         <module name="DEMOQA_BOOTCAMP" />
         <module name="EDMUNDS" />
+        <module name="FredPNT" />
         <module name="GEICO" />
         <module name="jqueryUI" />
         <module name="Twitter" />
@@ -27,6 +28,7 @@
       <module name="DEMOQA_BOOTCAMP" target="1.5" />
       <module name="EDMUNDS" target="1.5" />
       <module name="ExtendedBase" target="1.5" />
+      <module name="FredPNT" target="1.5" />
       <module name="GEICO" target="1.5" />
       <module name="jqueryUI" target="1.5" />
       <module name="PetFinder" target="1.5" />

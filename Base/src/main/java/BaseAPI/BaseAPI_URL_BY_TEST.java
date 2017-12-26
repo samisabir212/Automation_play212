@@ -1,5 +1,7 @@
 package BaseAPI;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Dimension;
 
@@ -22,11 +24,14 @@ import org.testng.annotations.Parameters;
 import org.testng.log4testng.Logger;
 
 import java.awt.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -52,8 +57,14 @@ public abstract class BaseAPI_URL_BY_TEST {
 
 
 
-    @Parameters({"useCloud", "cloudUserName", "cloudAccessKey", "useGrid",
-            "plateform", "os", "browserName", "browserVersion","url"})
+    @Parameters({"useCloud",
+            "cloudUserName",
+            "cloudAccessKey",
+            "useGrid",
+            "plateform",
+            "os",
+            "browserName",
+            "browserVersion","url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloud,
                       @Optional("sami212") String cloudUserName,
@@ -73,9 +84,7 @@ public abstract class BaseAPI_URL_BY_TEST {
             //run in cloud
             getCloudDriver(cloudUserName, cloudAccessKey, os, browserName, browserVersion);
             log.debug("useCloud driver launched");
-
         } else if (useGrid == true) {
-
             //run grid
             // objectRepositoryStreamSetup();
             getGridDriver(platform, browserName, browserVersion);
@@ -85,7 +94,6 @@ public abstract class BaseAPI_URL_BY_TEST {
 
             getLocalDriver(os, browserName);
             log.debug("Local driver Launched");
-
         }
 
 
@@ -95,43 +103,30 @@ public abstract class BaseAPI_URL_BY_TEST {
 
         //driver.get(url);   //<-- doesnt keep history of the pages you navigated to
        // driver.navigate().to(url);
-
-
-
     }
-
-
-
 
     //my local driver
     public WebDriver getLocalDriver(String os, String browserName) {
 
 
         if (browserName.equalsIgnoreCase("chrome")) {
-
             if (os.equalsIgnoreCase("Mac")) {
                 System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/COpy/SeleniumFrameWork/Base/src/main/java/Drivers/chromedriver");
-
             } else if (os.equalsIgnoreCase("Win10")) {
                 System.setProperty("webdriver.chrome.driver", "Windows path for chrome driver here.");
-
             } else if (os.equalsIgnoreCase("Linux")) {
                 System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/chromedriverLinux");
             }
+
             driver = new ChromeDriver();
 
         } else if (browserName.equalsIgnoreCase("firefox")) {
-
-
             if (os.equalsIgnoreCase("Mac")) {
                 System.setProperty("webdriver.gecko.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/geckodriverMAC");
-
             } else if (os.equalsIgnoreCase("Win10")) {
                 System.setProperty("webdriver.gecko.driver", "Windows path for chrome driver here.");
-
             } else if (os.equalsIgnoreCase("Linux")) {
                 System.setProperty("webdriver.gecko.driver", "/Users/sami/Desktop/SeleniumBootCamp/Base/src/main/java/Drivers/geckodriverLinux");
-
             }
 
             driver = new FirefoxDriver();
@@ -139,7 +134,6 @@ public abstract class BaseAPI_URL_BY_TEST {
         } else if (os.equalsIgnoreCase("Win")) {
             if (browserName.equalsIgnoreCase("ie")) {
                 System.setProperty("webdriver.ie.driver", "IE windows path to driver here");
-
             }
 
             driver = new InternetExplorerDriver();
@@ -147,16 +141,10 @@ public abstract class BaseAPI_URL_BY_TEST {
 
         } else if (os.equalsIgnoreCase("Mac")) {
             if (browserName.equalsIgnoreCase("Safari")) {
-
                 driver = new SafariDriver();
-
             }
-
-
         }
-
         return driver;
-
     }
 
     public WebDriver getCloudDriver(String cloudUserName, String cloudAccessKey, String os,
@@ -235,14 +223,14 @@ public abstract class BaseAPI_URL_BY_TEST {
     }
 
 
-    public void objectRepositoryStreamSetup() {
+    public void objectRepositoryStreamSetup(String path) {
 
 
         /*
         * used for retrieving object data from Object Repository properties file
         * */
         try {
-            fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/ObjectRepository/OR.properties");
+            fis = new FileInputStream(System.getProperty("user.dir") + path);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -421,7 +409,10 @@ public abstract class BaseAPI_URL_BY_TEST {
 
         driver.findElement(locator).clear();
     }
-/**********************************************************/
+
+
+
+/************************GET ELEMENTS AND RETURN THEM**********************************/
 
     //pass the locator and pass the type of locator and it will automatically generate
     public WebElement getElement(String locator, String type) {
@@ -498,6 +489,7 @@ public abstract class BaseAPI_URL_BY_TEST {
     public void verifyTextFieldisDisplayed(String locator) {
 
         WebElement textField = driver.findElement(By.id(locator));
+
         boolean textFieldObject = textField.isDisplayed();
 
         if (textFieldObject = true) {
@@ -554,9 +546,7 @@ public abstract class BaseAPI_URL_BY_TEST {
     public String getCurrentPageUrl() {
 
         String url = driver.getCurrentUrl();
-
-        System.out.println(url.toString());
-
+        //just use this in a sys out
         return url;
     }
 
@@ -659,6 +649,8 @@ public abstract class BaseAPI_URL_BY_TEST {
         return items;
 
     }
+
+
 
 
     //***********************************************
@@ -795,14 +787,7 @@ public abstract class BaseAPI_URL_BY_TEST {
     }
 
 
-    //wait for element to be clickable by any type
-    public void waitUntilClickable_UsingBy(By locator) {
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable((locator)));
-
-
-    }
 
     //wait for element to be clickable by xpath
     public void waitUntilClickAble(By locator){
@@ -1001,8 +986,42 @@ public abstract class BaseAPI_URL_BY_TEST {
         }
     }
 
+    public void upLoadFile(String locator,String path){
+        driver.findElement(By.cssSelector(locator)).sendKeys(path);
+        /* path example to upload a file/image
+           path= "C:\\Users\\rrt\\Pictures\\ds1.png";
+         */
+    }
+
+    public static void captureScreenshot(WebDriver driver, String screenshotName){
+
+        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
+        Date date = new Date();
+        df.format(date);
+
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(file, new File(System.getProperty("user.dir")+ "/screenshots/"+screenshotName+" "+df.format(date)+".png"));
+            System.out.println("Screenshot captured");
+        } catch (Exception e) {
+            System.out.println("Exception while taking screenshot "+e.getMessage());;
+        }
+
+    }
+    //Taking Screen shots
+    public void takeScreenShot()throws IOException {
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File("screenShots.png"));
+    }
 
 
+
+
+    public String converToString(String st){
+        String splitString ;
+        splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
+        return splitString;
+    }
 
 
 

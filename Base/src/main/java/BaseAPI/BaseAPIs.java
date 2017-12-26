@@ -45,11 +45,24 @@ public class BaseAPIs {
 
 
 
-    @Parameters({"useCloud", "cloudUserName", "cloudAccessKey", "useGrid", "plateform", "os", "browserName", "browserVersion", "url"})
+    @Parameters({"useCloud",
+            "cloudUserName",
+            "cloudAccessKey",
+            "useGrid",
+            "plateform",
+            "os",
+            "browserName",
+            "browserVersion",
+            "url"})
     @BeforeMethod
-    public void setUp(@Optional("false") boolean useCloud, @Optional("sami212") String cloudUserName,
-                      @Optional("####") String cloudAccessKey, @Optional("false") boolean useGrid, @Optional("Mac") String platform, @Optional("Windows 10") String os,
-                      @Optional("firefox") String browserName, @Optional("58") String browserVersion,
+    public void setUp(@Optional("false") boolean useCloud,
+                      @Optional("sami212") String cloudUserName,
+                      @Optional("####") String cloudAccessKey,
+                      @Optional("false") boolean useGrid,
+                      @Optional("Mac") String platform,
+                      @Optional("Windows 10") String os,
+                      @Optional("firefox") String browserName,
+                      @Optional("58") String browserVersion,
                       @Optional("http://demoqa.com/") String url) throws MalformedURLException {
 
 

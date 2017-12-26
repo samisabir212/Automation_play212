@@ -4,11 +4,12 @@
 
 <suite name="Amazon" parallel="tests">
 
-    <parameter name="useCloud" value="false"/>
+    <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudUserName" value="rahmanww"/>
     <parameter name="cloudAccessKey" value="6f132866-de72-43fd-b49a-e6f81d26bfe3"/>
     <parameter name="useGrid" value="false"/>
     <parameter name="os" value="Mac"/>
+    <parameter name="os_version" value="Sierra"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="54.0"/>
     <parameter name="url" value="http://amazon.com"/>
@@ -21,6 +22,7 @@
     <test name = "Amazon">
 
         <classes>
+            <class name="AmazonHome.Test_Enhanced_Cloud_Common_API"/>
             <class name="AmazonHome.TestAmazonHome"/>
         </classes>
 

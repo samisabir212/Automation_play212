@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -72,7 +73,7 @@ public class Base_API_Cloud_Enhanced {
         } else if (result.getStatus() == 2) {
             ExtentTestManager.getTest().log(LogStatus.FAIL, getStackTrace(result.getThrowable()));
         } else if (result.getStatus() == 3) {
-            ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
+            ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");11````
         }
 
         ExtentTestManager.endTest();
@@ -102,38 +103,55 @@ public class Base_API_Cloud_Enhanced {
     private String saucelabs_accesskey = "";
     private String browserstack_accesskey = "";
 
-    @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
+    @Parameters({"useCloudEnv",
+            "cloudEnvName",
+            "useGrid",
+            "os",
+            "os_version",
+            "browserName",
+            "browserVersion",
+            "url"})
     @BeforeMethod
-    public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false")String cloudEnvName,
-                      @Optional("Windows") String os,@Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
-                              String browserVersion, @Optional("http://www.amazon.com") String url)throws IOException {
+    public void setUp(@Optional("false") boolean useCloudEnv,
+                      @Optional("false")String cloudEnvName,
+                      @Optional("false") boolean useGrid,
+                      @Optional("Windows") String os,
+                      @Optional("Sierra") String os_version,
+                      @Optional("firefox") String browserName,
+                      @Optional("34") String browserVersion,
+                      @Optional("http://www.amazon.com") String url)throws IOException {
         if(useCloudEnv==true){
             if(cloudEnvName.equalsIgnoreCase("browserstack")) {
-                getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
+                getCloudDriver(cloudEnvName, browserstack_username, browserstack_accesskey, os,os_version, browserName, browserVersion);
+
             }else if (cloudEnvName.equalsIgnoreCase("saucelabs")){
                 getCloudDriver(cloudEnvName,saucelabs_username, saucelabs_accesskey,os,os_version, browserName, browserVersion);
             }
-        }else{
+        }else if (useGrid == true){
             //run in local
+        }else{
+
             getLocalDriver(os, browserName);
+
+
         }
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().window().maximize();
     }
-    public WebDriver getLocalDriver(@Optional("mac") String OS,String browserName){
+    public WebDriver getLocalDriver(@Optional("Mac") String os,String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
-            if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver");
-            }else if(OS.equalsIgnoreCase("Win")){
+            if(os.equalsIgnoreCase("Mac")){
+                System.setProperty("webdriver.chrome.driver", "/Users/sami/Desktop/RocketLauncher/Mac/Drivers/chromedriver2_25");
+            }else if(os.equalsIgnoreCase("Win")){
                 System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
             }
             driver = new ChromeDriver();
         }else if(browserName.equalsIgnoreCase("firefox")){
-            if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");
-            }else if(OS.equalsIgnoreCase("Windows")) {
+            if(os.equalsIgnoreCase("OS X")){
+                System.setProperty("webdriver.gecko.driver", "../Base/src/main/java/Drivers/geckodriverMAC");
+            }else if(os.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver.exe");
             }
             driver = new FirefoxDriver();
@@ -145,6 +163,7 @@ public class Base_API_Cloud_Enhanced {
         return driver;
 
     }
+
     public WebDriver getLocalGridDriver(String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver");
@@ -184,11 +203,60 @@ public class Base_API_Cloud_Enhanced {
         return driver;
     }
 
+    public WebDriver getGridDriver(String platform,
+                                   String browserName,
+                                   String browserVersion) throws MalformedURLException {
+
+
+        //passing node url to remote driver
+        String nodeURL = "http://192.168.1.175:4444/wd/hub";
+
+        WebDriver driver = null;
+
+        DesiredCapabilities caps = new DesiredCapabilities();
+
+        // Platforms
+        if (platform.equalsIgnoreCase("Windows")) {
+            caps.setPlatform(org.openqa.selenium.Platform.WINDOWS);
+        }
+        if (platform.equalsIgnoreCase("MAC")) {
+            caps.setPlatform(org.openqa.selenium.Platform.MAC);
+        }
+        if (browserName.equalsIgnoreCase("Linux")) {
+            caps.setPlatform(org.openqa.selenium.Platform.LINUX);
+        }
+
+        // Browsers
+        if (browserName.equalsIgnoreCase("chrome")) {
+            caps = DesiredCapabilities.chrome();
+        }
+        if (browserName.equalsIgnoreCase("firefox")) {
+            caps = DesiredCapabilities.firefox();
+        }
+        // Version
+        caps.setVersion(browserVersion);
+
+        driver = new RemoteWebDriver(new URL(nodeURL), caps);
+        // Maximize the browserName's window
+        // driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        // Open the Application
+        //driver.get(url);
+        return driver;
+
+
+    }
+
     @AfterMethod
     public void cleanUp(){
         System.out.println("It has been called");
         driver.quit();
     }
+
+
+
+
+
     public void clickByCss(String locator) {
         driver.findElement(By.cssSelector(locator)).click();
     }
@@ -213,13 +281,22 @@ public class Base_API_Cloud_Enhanced {
     }
 
     public void clearInputField(String locator){
+
         driver.findElement(By.cssSelector(locator)).clear();
     }
+
+
+
+
+
     public List<WebElement> getListOfWebElementsById(String locator) {
         List<WebElement> list = new ArrayList<WebElement>();
         list = driver.findElements(By.id(locator));
         return list;
     }
+
+
+    //call this in a method and store this method in a string object becuase your returnin the text.
     public List<String> getTextFromWebElements(String locator){
         List<WebElement> element = new ArrayList<WebElement>();
         List<String> text = new ArrayList<String>();
@@ -259,8 +336,11 @@ public class Base_API_Cloud_Enhanced {
         return st;
     }
     public String getTextById(String locator){
+
         return driver.findElement(By.id(locator)).getText();
     }
+
+
     public String getTextByName(String locator){
         String st = driver.findElement(By.name(locator)).getText();
         return st;

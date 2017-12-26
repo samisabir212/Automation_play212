@@ -275,10 +275,7 @@
                 <version>2.18.1</version>
                 <configuration>
                     <testFailureIgnore> true </testFailureIgnore>
-                   <!-- <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resourCucumber.runnernner/testng.xml</suiteXmlFile>
 
-                    </suiteXmlFiles>-->
                 </configuration>
             </plugin>
 
