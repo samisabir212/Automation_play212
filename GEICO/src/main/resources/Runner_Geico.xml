@@ -4,11 +4,11 @@
 
 <suite name="Geico_Start_Quote_HomePage" parallel="tests">
 
-    <parameter name="useCloud" value="false"/>
-    <parameter name="cloudUserName" value="rahmanww"/>
-    <parameter name="cloudAccessKey" value="6f132866-de72-43fd-b49a-e6f81d26bfe3"/>
+    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="cloudEnvName" value="saucelabs"/>
     <parameter name="useGrid" value="false"/>
     <parameter name="os" value="Mac"/>
+    <parameter name="os_version" value="Sierra"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="54.0"/>
     <parameter name="url" value="http://geico.com"/>
@@ -22,8 +22,7 @@
 
     <test name = "Start Quote by zip code at home page">
         <classes>
-            <class name="_Tests_Geico.Geico_StartQuote"/>
-            <class name="_Tests_Geico.Rough.readExcelData"/>
+            <class name="_Tests_Geico.GeicoTest"/>
         </classes>
     </test>
 

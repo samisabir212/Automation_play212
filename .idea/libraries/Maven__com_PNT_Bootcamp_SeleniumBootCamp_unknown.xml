@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.PNT.Bootcamp:SeleniumBootCamp:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/PNT/Bootcamp/SeleniumBootCamp/unknown/SeleniumBootCamp-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/PNT/Bootcamp/SeleniumBootCamp/unknown/SeleniumBootCamp-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/PNT/Bootcamp/SeleniumBootCamp/unknown/SeleniumBootCamp-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

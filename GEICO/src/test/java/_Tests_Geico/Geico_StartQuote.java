@@ -8,11 +8,6 @@ import org.testng.annotations.Test;
 public class Geico_StartQuote extends BaseAPI_URL_BY_TEST {
 
 
-    @Override
-    public void objectRepositoryStreamSetup(String path) {
-        super.objectRepositoryStreamSetup(path);
-
-    }
 
     @Parameters("url")
     @Test(enabled = true)
